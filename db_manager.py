@@ -1,14 +1,11 @@
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 from src.extensions import database
-from src.server import BuildApp
+from app import create_app
 from src.api.services.location import LocationService
 import csv
-from flask import Flask
 
-build_app = BuildApp(Flask(__name__))
-app = build_app.create_app()
-build_app.run_app()
+app = create_app()
 manager = Manager(app)
 migrate = Migrate(app, database)
 manager.add_command('db', MigrateCommand)
