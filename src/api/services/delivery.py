@@ -122,10 +122,10 @@ class DeliveryService:
         validator.validate(data)
 
         if not validator.errors:
-            if data['identity_role'] == 'client' and str(data['client_id']) != str(data['identity_id']):
-                return DELIVERY_CREATION_FAILED, dict(client=['invalid client id']), FAILURE
-            if data['identity_role'] == 'admin':
-                data['client_id'] = 0
+            # if data['identity_role'] == 'client' and str(data['client_id']) != str(data['identity_id']):
+            #     return DELIVERY_CREATION_FAILED, dict(client=['invalid client id']), FAILURE
+            # if data['identity_role'] == 'admin':
+            #     data['client_id'] = 0
 
             data['tracking_id'] = create_tracking_id()
             # Transform the cellphone number
@@ -175,10 +175,10 @@ class DeliveryService:
         # 'is_successful', 'is_remitted']
 
         if not validator.errors:
-            if data['identity_role'] == 'client' and str(data['client_id']) != str(data['identity_id']):
-                return DELIVERY_CREATION_FAILED, dict(client=['invalid client id']), FAILURE
-            if data['identity_role'] == 'admin':
-                data['client_id'] = 0
+            # if data['identity_role'] == 'client' and str(data['client_id']) != str(data['identity_id']):
+            #     return DELIVERY_CREATION_FAILED, dict(client=['invalid client id']), FAILURE
+            # if data['identity_role'] == 'admin':
+            #     data['client_id'] = 0
 
             is_delivery_exist = self.delivery_repo.get_by_attributes_first(['id'], cached_data)
             if not is_delivery_exist:
@@ -240,7 +240,7 @@ class DeliveryService:
                 log['value'] = data[status_key]
                 logs.append(log)
         self.status_repo.bulk_add(logs)
-        return True
+        return 'success', dict(), SUCCESS
 
     def _is_status_key_exist(self, data):
         for status_key in self.status_keys:

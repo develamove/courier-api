@@ -194,7 +194,7 @@ create_delivery_schema = {
             'type': 'string',
             'empty': False,
             'required': True,
-            'allowed': ['S-M', 'S', 'M', 'L', 'XL']
+            'allowed': ['S-M', 'S', 'M', 'L', 'XL', 'B']
         },
         'item_amount': {
             'type': 'integer',
@@ -343,7 +343,7 @@ modify_delivery_schema = {
         'item_type': {
             'type': 'string',
             'empty': False,
-            'allowed': ['S-M', 'S', 'M', 'L', 'XL']
+            'allowed': ['S-M', 'S', 'M', 'L', 'XL', 'B']
         },
         'item_amount': {
             'type': 'integer',
