@@ -28,4 +28,4 @@ RUN pipenv install --system --deploy
 
 EXPOSE 8080
 
-ENTRYPOINT ["gunicorn", "wsgi2:app"]
+ENTRYPOINT ["gunicorn", "wsgi:app"]

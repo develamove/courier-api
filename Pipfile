@@ -23,6 +23,7 @@ flask-jwt-extended = "*"
 flask-cors = "*"
 requests = "*"
 gevent = "*"
+cffi = "*"
 
 [dev-packages]
 
