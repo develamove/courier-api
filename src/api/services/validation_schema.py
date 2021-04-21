@@ -70,10 +70,6 @@ register_client_schema = {
         },
         'cellphone_no': {
             'type': 'string',
-            'empty': False,
-            'required': True,
-            'minlength': 11,
-            'maxlength': 13
         },
         'province': {
             'type': 'string',

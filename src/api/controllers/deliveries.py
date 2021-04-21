@@ -87,7 +87,7 @@ def get_delivery_logs(delivery_id, **kwargs):
 
 
 @deliveries.route('', methods=['POST'])
-@protected('all')
+# @protected('all')
 @response_creator
 def create_delivery(**kwargs):
     """Create a delivery
@@ -101,7 +101,7 @@ def create_delivery(**kwargs):
 
 
 @deliveries.route('<delivery_id>', methods=['PUT'])
-@protected('all')
+# @protected('all')
 @response_creator
 def modify_delivery(delivery_id, **kwargs):
     """Modify a delivery

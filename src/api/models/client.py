@@ -22,7 +22,7 @@ class ClientModel(database.Model):
     set_timestamp = Column(DateTime, nullable=True)
     registered_timestamp = Column(DateTime, nullable=False, server_default=func.current_timestamp())
 
-    def __init__(self, first_name, username, password, last_name, cellphone_no, email, province='', city='',
+    def __init__(self, first_name, username, password, last_name, email, cellphone_no='', province='', city='',
                  district='', middle_name='', street='', landmarks=''):
         self.username = username
         self.password = bcrypt.generate_password_hash(password)

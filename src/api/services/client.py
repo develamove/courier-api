@@ -25,9 +25,9 @@ class ClientService:
                 'identity_id': client['id']
             }
             access_token = create_access_token(identity=username, additional_claims=claims)
-            return dict(token=access_token), [], SUCCESS
+            return dict(token=access_token, client_id=client['id']), [], SUCCESS
 
-        return dict(), 'failed to login', FAILURE
+        return dict(), dict(credentials=['not valid credentials']), FAILURE
 
     def get_clients(self, data: any):
         """Get a list of clients
@@ -68,11 +68,11 @@ class ClientService:
         if not validator.errors:
             is_username_exist = self.client_repo.get_by_attributes_first(['username'], data)
             if is_username_exist:
-                return [], dict(username=['user name already exist']), FAILURE
+                return [], dict(username=['already exist']), FAILURE
 
             is_email_exist = self.client_repo.get_by_attributes_first(['email'], data)
             if is_email_exist:
-                return [], dict(username=['email already exist']), FAILURE
+                return [], dict(email=['already exist']), FAILURE
 
             client = self.client_repo.add(data)
             if client:
