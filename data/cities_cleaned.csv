@@ -1,0 +1,1619 @@
+id,province_id,name,is_pickup_available
+1,1,Bangued,F
+2,1,Boliney,F
+3,1,Bucay,F
+4,1,Bucloc,F
+5,1,Daguioman,F
+6,1,Danglas,F
+7,1,Dolores,F
+8,1,La Paz,F
+9,1,Lacub,F
+10,1,Lagangilang,F
+11,1,Lagayan,F
+12,1,Langiden,F
+13,1,Licuan-Baay,F
+14,1,Luba,F
+15,1,Malibcong,F
+16,1,Manabo,F
+17,1,Penarrubia,F
+18,1,Pidigan,F
+19,1,Pilar,F
+20,1,Sallapadan,F
+21,1,San Isidro,F
+22,1,San Juan,F
+23,1,San Quintin,F
+24,1,Tayum,F
+25,1,Tineg,F
+26,1,Tubo,F
+27,1,Villaviciosa,F
+28,2,Buenavista,F
+29,2,Butuan City,F
+30,2,Cabadbaran City,F
+31,2,Carmen,F
+32,2,Jabonga,F
+33,2,Kitcharao,F
+34,2,Las Nieves,F
+35,2,Magallanes,F
+36,2,Nasipit,F
+37,2,Remedios T. Romualdez,F
+38,2,Santiago,F
+39,2,Tubay,F
+40,3,Bayugan City,F
+41,3,Bunawan,F
+42,3,Esperanza,F
+43,3,La Paz,F
+44,3,Loreto,F
+45,3,Prosperidad,F
+46,3,Rosario,F
+47,3,San Francisco,F
+48,3,San Luis,F
+49,3,Santa Josefa,F
+50,3,Sibagat,F
+51,3,Talacogon,F
+52,3,Trento,F
+53,3,Veruela,F
+54,4,Altavas,F
+55,4,Balete,F
+56,4,Banga,F
+57,4,Batan,F
+58,4,Buruanga,F
+59,4,Ibajay,F
+60,4,Kalibo,F
+61,4,Lezo,F
+62,4,Libacao,F
+63,4,Madalag,F
+64,4,Makato,F
+65,4,Malay,F
+66,4,Malinao,F
+67,4,Nabas,F
+68,4,New Washington,F
+69,4,Numancia,F
+70,4,Tangalan,F
+71,5,Bacacay,F
+72,5,Camalig,F
+73,5,Daraga,F
+74,5,Guinobatan,F
+75,5,Jovellar,F
+76,5,Legazpi City,F
+77,5,Libon,F
+78,5,Ligao City,F
+79,5,Malilipot,F
+80,5,Malinao,F
+81,5,Manito,F
+82,5,Oas,F
+83,5,Pio Duran,F
+84,5,Polangui,F
+85,5,Rapu-Rapu,F
+86,5,Santo Domingo,F
+87,5,Tabaco City,F
+88,5,Tiwi,F
+89,6,Anini-Y,F
+90,6,Barbaza,F
+91,6,Belison,F
+92,6,Bugasong,F
+93,6,Caluya,F
+94,6,Culasi,F
+95,6,Hamtic,F
+96,6,Laua-An,F
+97,6,Libertad,F
+98,6,Pandan,F
+99,6,Patnongon,F
+100,6,San Jose,F
+101,6,San Remigio,F
+102,6,Sebaste,F
+103,6,Sibalom,F
+104,6,Tibiao,F
+105,6,Tobias Fornier,F
+106,6,Valderrama,F
+107,7,Calanasan,F
+108,7,Conner,F
+109,7,Flora,F
+110,7,Kabugao,F
+111,7,Luna,F
+112,7,Pudtol,F
+113,7,Santa Marcela,F
+114,8,Baler,F
+115,8,Casiguran,F
+116,8,Dilasag,F
+117,8,Dinalungan,F
+118,8,Dingalan,F
+119,8,Dipaculao,F
+120,8,Maria Aurora,F
+121,8,San Luis,F
+122,9,Akbar,F
+123,9,Al-Barka,F
+124,9,City of Isabela,F
+125,9,Hadji Mohammad Ajul,F
+126,9,Hadji Muhtamad,F
+127,9,Lamitan City,F
+128,9,Lantawan,F
+129,9,Maluso,F
+130,9,Sumisip,F
+131,9,Tabuan-Lasa,F
+132,9,Tipo-Tipo,F
+133,9,Tuburan,F
+134,9,Ungkaya Pukan,F
+135,10,Abucay,F
+136,10,Bagac,F
+137,10,Balanga City,F
+138,10,Dinalupihan,F
+139,10,Hermosa,F
+140,10,Limay,F
+141,10,Mariveles,F
+142,10,Morong,F
+143,10,Orani,F
+144,10,Orion,F
+145,10,Pilar,F
+146,10,Samal,F
+147,11,Basco,F
+148,11,Itbayat,F
+149,11,Ivana,F
+150,11,Mahatao,F
+151,11,Sabtang,F
+152,11,Uyugan,F
+153,12,Agoncillo,F
+154,12,Alitagtag,F
+155,12,Balayan,F
+156,12,Balete,F
+157,12,Batangas City,F
+158,12,Bauan,F
+159,12,Calaca,F
+160,12,Calatagan,F
+161,12,Cuenca,F
+162,12,Ibaan,F
+163,12,Laurel,F
+164,12,Lemery,F
+165,12,Lian,F
+166,12,Lipa City,F
+167,12,Lobo,F
+168,12,Mabini,F
+169,12,Malvar,F
+170,12,Mataasnakahoy,F
+171,12,Nasugbu,F
+172,12,Padre Garcia,F
+173,12,Rosario,F
+174,12,San Jose,F
+175,12,San Juan,F
+176,12,San Luis,F
+177,12,San Nicolas,F
+178,12,San Pascual,F
+179,12,Santa Teresita,F
+180,12,Santo Tomas City,F
+181,12,Taal,F
+182,12,Talisay,F
+183,12,Tanauan City,F
+184,12,Taysan,F
+185,12,Tingloy,F
+186,12,Tuy,F
+187,13,Atok,F
+188,13,Baguio City,F
+189,13,Bakun,F
+190,13,Bokod,F
+191,13,Buguias,F
+192,13,Itogon,F
+193,13,Kabayan,F
+194,13,Kapangan,F
+195,13,Kibungan,F
+196,13,La Trinidad,F
+197,13,Mankayan,F
+198,13,Sablan,F
+199,13,Tuba,F
+200,13,Tublay,F
+201,14,Almeria,F
+202,14,Biliran,F
+203,14,Cabucgayan,F
+204,14,Caibiran,F
+205,14,Culaba,F
+206,14,Kawayan,F
+207,14,Maripipi,F
+208,14,Naval,F
+209,15,Alburquerque,F
+210,15,Alicia,F
+211,15,Anda,F
+212,15,Antequera,F
+213,15,Baclayon,F
+214,15,Balilihan,F
+215,15,Batuan,F
+216,15,Bien Unido,F
+217,15,Bilar,F
+218,15,Buenavista,F
+219,15,Calape,F
+220,15,Candijay,F
+221,15,Carmen,F
+222,15,Catigbian,F
+223,15,Clarin,F
+224,15,Corella,F
+225,15,Cortes,F
+226,15,Dagohoy,F
+227,15,Danao,F
+228,15,Dauis,F
+229,15,Dimiao,F
+230,15,Duero,F
+231,15,Garcia Hernandez,F
+232,15,Getafe,F
+233,15,Guindulman,F
+234,15,Inabanga,F
+235,15,Jagna,F
+236,15,Lila,F
+237,15,Loay,F
+238,15,Loboc,F
+239,15,Loon,F
+240,15,Mabini,F
+241,15,Maribojoc,F
+242,15,Panglao,F
+243,15,Pilar,F
+244,15,President Carlos P. Garcia,F
+245,15,Sagbayan,F
+246,15,San Isidro,F
+247,15,San Miguel,F
+248,15,Sevilla,F
+249,15,Sierra Bullones,F
+250,15,Sikatuna,F
+251,15,Tagbilaran City,F
+252,15,Talibon,F
+253,15,Trinidad,F
+254,15,Tubigon,F
+255,15,Ubay,F
+256,15,Valencia,F
+257,16,Baungon,F
+258,16,Cabanglasan,F
+259,16,Damulog,F
+260,16,Dangcagan,F
+261,16,Don Carlos,F
+262,16,Impasug-Ong,F
+263,16,Kadingilan,F
+264,16,Kalilangan,F
+265,16,Kibawe,F
+266,16,Kitaotao,F
+267,16,Lantapan,F
+268,16,Libona,F
+269,16,Malaybalay City,F
+270,16,Malitbog,F
+271,16,Manolo Fortich,F
+272,16,Maramag,F
+273,16,Pangantucan,F
+274,16,Quezon,F
+275,16,San Fernando,F
+276,16,Sumilao,F
+277,16,Talakag,F
+278,16,Valencia City,F
+279,17,Angat,F
+280,17,Balagtas,T
+281,17,Baliuag,F
+282,17,Bocaue,T
+283,17,Bulacan,F
+284,17,Bustos,F
+285,17,Calumpit,F
+286,17,Dona Remedios Trinidad,F
+287,17,Guiguinto,F
+288,17,Hagonoy,F
+289,17,Malolos City,F
+290,17,Marilao,T
+291,17,Meycauayan City,T
+292,17,Norzagaray,F
+293,17,Obando,F
+294,17,Pandi,F
+295,17,Paombong,F
+296,17,Plaridel,F
+297,17,Pulilan,F
+298,17,San Ildefonso,F
+299,17,San Jose Del Monte City,T
+300,17,San Miguel,F
+301,17,San Rafael,F
+302,17,Santa Maria,T
+303,18,Abulug,F
+304,18,Alcala,F
+305,18,Allacapan,F
+306,18,Amulung,F
+307,18,Aparri,F
+308,18,Baggao,F
+309,18,Ballesteros,F
+310,18,Buguey,F
+311,18,Calayan,F
+312,18,Camalaniugan,F
+313,18,Claveria,F
+314,18,Enrile,F
+315,18,Gattaran,F
+316,18,Gonzaga,F
+317,18,Iguig,F
+318,18,Lal-Lo,F
+319,18,Lasam,F
+320,18,Pamplona,F
+321,18,Penablanca,F
+322,18,Piat,F
+323,18,Rizal,F
+324,18,Sanchez-Mira,F
+325,18,Santa Ana,F
+326,18,Santa Praxedes,F
+327,18,Santa Teresita,F
+328,18,Santo Nino,F
+329,18,Solana,F
+330,18,Tuao,F
+331,18,Tuguegarao City,F
+332,19,Basud,F
+333,19,Capalonga,F
+334,19,Daet,F
+335,19,Jose Panganiban,F
+336,19,Labo,F
+337,19,Mercedes,F
+338,19,Paracale,F
+339,19,San Lorenzo Ruiz,F
+340,19,San Vicente,F
+341,19,Santa Elena,F
+342,19,Talisay,F
+343,19,Vinzons,F
+344,20,Baao,F
+345,20,Balatan,F
+346,20,Bato,F
+347,20,Bombon,F
+348,20,Buhi,F
+349,20,Bula,F
+350,20,Cabusao,F
+351,20,Calabanga,F
+352,20,Camaligan,F
+353,20,Canaman,F
+354,20,Caramoan,F
+355,20,Del Gallego,F
+356,20,Gainza,F
+357,20,Garchitorena,F
+358,20,Goa,F
+359,20,Iriga City,F
+360,20,Lagonoy,F
+361,20,Libmanan,F
+362,20,Lupi,F
+363,20,Magarao,F
+364,20,Milaor,F
+365,20,Minalabac,F
+366,20,Nabua,F
+367,20,Naga City,F
+368,20,Ocampo,F
+369,20,Pamplona,F
+370,20,Pasacao,F
+371,20,Pili,F
+372,20,Presentacion,F
+373,20,Ragay,F
+374,20,Sagnay,F
+375,20,San Fernando,F
+376,20,San Jose,F
+377,20,Sipocot,F
+378,20,Siruma,F
+379,20,Tigaon,F
+380,20,Tinambac,F
+381,21,Catarman,F
+382,21,Guinsiliban,F
+383,21,Mahinog,F
+384,21,Mambajao,F
+385,21,Sagay,F
+386,22,Cuartero,F
+387,22,Dao,F
+388,22,Dumalag,F
+389,22,Dumarao,F
+390,22,Ivisan,F
+391,22,Jamindan,F
+392,22,Ma-Ayon,F
+393,22,Mambusao,F
+394,22,Panay,F
+395,22,Panitan,F
+396,22,Pilar,F
+397,22,Pontevedra,F
+398,22,President Roxas,F
+399,22,Roxas City,F
+400,22,Sapi-An,F
+401,22,Sigma,F
+402,22,Tapaz,F
+403,23,Bagamanoc,F
+404,23,Baras,F
+405,23,Bato,F
+406,23,Caramoran,F
+407,23,Gigmoto,F
+408,23,Pandan,F
+409,23,Panganiban,F
+410,23,San Andres,F
+411,23,San Miguel,F
+412,23,Viga,F
+413,23,Virac,F
+414,24,Alfonso,F
+415,24,Amadeo,F
+416,24,Bacoor City,T
+417,24,Carmona,F
+418,24,Cavite City,T
+419,24,Dasmarinas City,T
+420,24,Gen. Mariano Alvarez,F
+421,24,General Emilio Aguinaldo,F
+422,24,General Trias City,T
+423,24,Imus City,T
+424,24,Indang,F
+425,24,Kawit,F
+426,24,Magallanes,F
+427,24,Maragondon,F
+428,24,Mendez,F
+429,24,Naic,F
+430,24,Noveleta,F
+431,24,Rosario,F
+432,24,Silang,F
+433,24,Tagaytay City,F
+434,24,Tanza,T
+435,24,Ternate,F
+436,24,Trece Martires City,F
+437,25,Alcantara,F
+438,25,Alcoy,F
+439,25,Alegria,F
+440,25,Aloguinsan,F
+441,25,Argao,F
+442,25,Asturias,F
+443,25,Badian,F
+444,25,Balamban,F
+445,25,Bantayan,F
+446,25,Barili,F
+447,25,Bogo City,F
+448,25,Boljoon,F
+449,25,Borbon,F
+450,25,Carcar City,F
+451,25,Carmen,F
+452,25,Catmon,F
+453,25,Cebu City,F
+454,25,Compostela,F
+455,25,Consolacion,F
+456,25,Cordova,F
+457,25,Daanbantayan,F
+458,25,Dalaguete,F
+459,25,Danao City,F
+460,25,Dumanjug,F
+461,25,Ginatilan,F
+462,25,Lapu-Lapu City,F
+463,25,Liloan,F
+464,25,Madridejos,F
+465,25,Malabuyoc,F
+466,25,Mandaue City,F
+467,25,Medellin,F
+468,25,Minglanilla,F
+469,25,Moalboal,F
+470,25,Naga City,F
+471,25,Oslob,F
+472,25,Pilar,F
+473,25,Pinamungajan,F
+474,25,Poro,F
+475,25,Ronda,F
+476,25,Samboan,F
+477,25,San Fernando,F
+478,25,San Francisco,F
+479,25,San Remigio,F
+480,25,Santa Fe,F
+481,25,Santander,F
+482,25,Sibonga,F
+483,25,Sogod,F
+484,25,Tabogon,F
+485,25,Tabuelan,F
+486,25,Talisay City,F
+487,25,Toledo City,F
+488,25,Tuburan,F
+489,25,Tudela,F
+490,26,Compostela,F
+491,26,Laak,F
+492,26,Mabini,F
+493,26,Maco,F
+494,26,Maragusan,F
+495,26,Mawab,F
+496,26,Monkayo,F
+497,26,Montevista,F
+498,26,Nabunturan,F
+499,26,New Bataan,F
+500,26,Pantukan,F
+501,27,Alamada,F
+502,27,Aleosan,F
+503,27,Antipas,F
+504,27,Arakan,F
+505,27,Banisilan,F
+506,27,Carmen,F
+507,27,Kabacan,F
+508,27,Kidapawan City,F
+509,27,Libungan,F
+510,27,M'Lang,F
+511,27,Magpet,F
+512,27,Makilala,F
+513,27,Matalam,F
+514,27,Midsayap,F
+515,27,Pigkawayan,F
+516,27,Pikit,F
+517,27,President Roxas,F
+518,27,Tulunan,F
+519,28,Asuncion,F
+520,28,Braulio E. Dujali,F
+521,28,Carmen,F
+522,28,Island Garden City of Samal,F
+523,28,Kapalong,F
+524,28,New Corella,F
+525,28,Panabo City,F
+526,28,San Isidro,F
+527,28,Santo Tomas,F
+528,28,Tagum City,F
+529,28,Talaingod,F
+530,29,Bansalan,F
+531,29,Davao City,F
+532,29,Digos City,F
+533,29,Hagonoy,F
+534,29,Kiblawan,F
+535,29,Magsaysay,F
+536,29,Malalag,F
+537,29,Matanao,F
+538,29,Padada,F
+539,29,Santa Cruz,F
+540,29,Sulop,F
+541,30,Don Marcelino,F
+542,30,Jose Abad Santos,F
+543,30,Malita,F
+544,30,Santa Maria,F
+545,30,Sarangani,F
+546,31,Baganga,F
+547,31,Banaybanay,F
+548,31,Boston,F
+549,31,Caraga,F
+550,31,Cateel,F
+551,31,Governor Generoso,F
+552,31,Lupon,F
+553,31,Manay,F
+554,31,Mati City,F
+555,31,San Isidro,F
+556,31,Tarragona,F
+557,32,Basilisa,F
+558,32,Cagdianao,F
+559,32,Dinagat,F
+560,32,Libjo,F
+561,32,Loreto,F
+562,32,San Jose,F
+563,32,Tubajon,F
+564,33,Arteche,F
+565,33,Balangiga,F
+566,33,Balangkayan,F
+567,33,Borongan City,F
+568,33,Can-Avid,F
+569,33,Dolores,F
+570,33,General Macarthur,F
+571,33,Giporlos,F
+572,33,Guiuan,F
+573,33,Hernani,F
+574,33,Jipapad,F
+575,33,Lawaan,F
+576,33,Llorente,F
+577,33,Maslog,F
+578,33,Maydolong,F
+579,33,Mercedes,F
+580,33,Oras,F
+581,33,Quinapondan,F
+582,33,Salcedo,F
+583,33,San Julian,F
+584,33,San Policarpo,F
+585,33,Sulat,F
+586,33,Taft,F
+587,34,Buenavista,F
+588,34,Jordan,F
+589,34,Nueva Valencia,F
+590,34,San Lorenzo,F
+591,34,Sibunag,F
+592,35,Aguinaldo,F
+593,35,Alfonso Lista,F
+594,35,Asipulo,F
+595,35,Banaue,F
+596,35,Hingyon,F
+597,35,Hungduan,F
+598,35,Kiangan,F
+599,35,Lagawe,F
+600,35,Lamut,F
+601,35,Mayoyao,F
+602,35,Tinoc,F
+603,36,Adams,F
+604,36,Bacarra,F
+605,36,Badoc,F
+606,36,Bangui,F
+607,36,Banna,F
+608,36,Batac City,F
+609,36,Burgos,F
+610,36,Carasi,F
+611,36,Currimao,F
+612,36,Dingras,F
+613,36,Dumalneg,F
+614,36,Laoag City,F
+615,36,Marcos,F
+616,36,Nueva Era,F
+617,36,Pagudpud,F
+618,36,Paoay,F
+619,36,Pasuquin,F
+620,36,Piddig,F
+621,36,Pinili,F
+622,36,San Nicolas,F
+623,36,Sarrat,F
+624,36,Solsona,F
+625,36,Vintar,F
+626,37,Alilem,F
+627,37,Banayoyo,F
+628,37,Bantay,F
+629,37,Burgos,F
+630,37,Cabugao,F
+631,37,Candon City,F
+632,37,Caoayan,F
+633,37,Cervantes,F
+634,37,Galimuyod,F
+635,37,Gregorio Del Pilar,F
+636,37,Lidlidda,F
+637,37,Magsingal,F
+638,37,Nagbukel,F
+639,37,Narvacan,F
+640,37,Quirino,F
+641,37,Salcedo,F
+642,37,San Emilio,F
+643,37,San Esteban,F
+644,37,San Ildefonso,F
+645,37,San Juan,F
+646,37,San Vicente,F
+647,37,Santa,F
+648,37,Santa Catalina,F
+649,37,Santa Cruz,F
+650,37,Santa Lucia,F
+651,37,Santa Maria,F
+652,37,Santiago,F
+653,37,Santo Domingo,F
+654,37,Sigay,F
+655,37,Sinait,F
+656,37,Sugpon,F
+657,37,Suyo,F
+658,37,Tagudin,F
+659,37,Vigan City,F
+660,38,Ajuy,F
+661,38,Alimodian,F
+662,38,Anilao,F
+663,38,Badiangan,F
+664,38,Balasan,F
+665,38,Banate,F
+666,38,Barotac Nuevo,F
+667,38,Barotac Viejo,F
+668,38,Batad,F
+669,38,Bingawan,F
+670,38,Cabatuan,F
+671,38,Calinog,F
+672,38,Carles,F
+673,38,Concepcion,F
+674,38,Dingle,F
+675,38,Duenas,F
+676,38,Dumangas,F
+677,38,Estancia,F
+678,38,Guimbal,F
+679,38,Igbaras,F
+680,38,Iloilo City,F
+681,38,Janiuay,F
+682,38,Lambunao,F
+683,38,Leganes,F
+684,38,Lemery,F
+685,38,Leon,F
+686,38,Maasin,F
+687,38,Miagao,F
+688,38,Mina,F
+689,38,New Lucena,F
+690,38,Oton,F
+691,38,Passi City,F
+692,38,Pavia,F
+693,38,Pototan,F
+694,38,San Dionisio,F
+695,38,San Enrique,F
+696,38,San Joaquin,F
+697,38,San Miguel,F
+698,38,San Rafael,F
+699,38,Santa Barbara,F
+700,38,Sara,F
+701,38,Tigbauan,F
+702,38,Tubungan,F
+703,38,Zarraga,F
+704,39,Alicia,F
+705,39,Angadanan,F
+706,39,Aurora,F
+707,39,Benito Soliven,F
+708,39,Burgos,F
+709,39,Cabagan,F
+710,39,Cabatuan,F
+711,39,Cauayan City,F
+712,39,Cordon,F
+713,39,Delfin Albano,F
+714,39,Dinapigue,F
+715,39,Divilacan,F
+716,39,Echague,F
+717,39,Gamu,F
+718,39,Ilagan City,F
+719,39,Jones,F
+720,39,Luna,F
+721,39,Maconacon,F
+722,39,Mallig,F
+723,39,Naguilian,F
+724,39,Palanan,F
+725,39,Quezon,F
+726,39,Quirino,F
+727,39,Ramon,F
+728,39,Reina Mercedes,F
+729,39,Roxas,F
+730,39,San Agustin,F
+731,39,San Guillermo,F
+732,39,San Isidro,F
+733,39,San Manuel,F
+734,39,San Mariano,F
+735,39,San Mateo,F
+736,39,San Pablo,F
+737,39,Santa Maria,F
+738,39,Santiago City,F
+739,39,Santo Tomas,F
+740,39,Tumauini,F
+741,40,Balbalan,F
+742,40,Lubuagan,F
+743,40,Pasil,F
+744,40,Pinukpuk,F
+745,40,Rizal,F
+746,40,Tabuk City,F
+747,40,Tanudan,F
+748,40,Tinglayan,F
+749,42,Alaminos,F
+750,42,Bay,F
+751,42,Binan City,F
+752,42,Cabuyao City,F
+753,42,Calamba City,F
+754,42,Calauan,F
+755,42,Cavinti,F
+756,42,Famy,F
+757,42,Kalayaan,F
+758,42,Liliw,F
+759,42,Los Banos,F
+760,42,Luisiana,F
+761,42,Lumban,F
+762,42,Mabitac,F
+763,42,Magdalena,F
+764,42,Majayjay,F
+765,42,Nagcarlan,F
+766,42,Paete,F
+767,42,Pagsanjan,F
+768,42,Pakil,F
+769,42,Pangil,F
+770,42,Pila,F
+771,42,Rizal,F
+772,42,San Pablo City,F
+773,42,San Pedro City,T
+774,42,Santa Cruz,F
+775,42,Santa Maria,F
+776,42,Santa Rosa City,T
+777,42,Siniloan,F
+778,42,Victoria,F
+779,43,Bacolod,F
+780,43,Baloi,F
+781,43,Baroy,F
+782,43,Iligan City,F
+783,43,Kapatagan,F
+784,43,Kauswagan,F
+785,43,Kolambugan,F
+786,43,Lala,F
+787,43,Linamon,F
+788,43,Magsaysay,F
+789,43,Maigo,F
+790,43,Matungao,F
+791,43,Munai,F
+792,43,Nunungan,F
+793,43,Pantao Ragat,F
+794,43,Pantar,F
+795,43,Poona Piagapo,F
+796,43,Salvador,F
+797,43,Sapad,F
+798,43,Sultan Naga Dimaporo,F
+799,43,Tagoloan,F
+800,43,Tangcal,F
+801,43,Tubod,F
+802,44,Amai Manabilang,F
+803,44,Bacolod-Kalawi,F
+804,44,Balabagan,F
+805,44,Balindong,F
+806,44,Bayang,F
+807,44,Binidayan,F
+808,44,Buadiposo-Buntong,F
+809,44,Bubong,F
+810,44,Butig,F
+811,44,Calanogas,F
+812,44,Ditsaan-Ramain,F
+813,44,Ganassi,F
+814,44,Kapai,F
+815,44,Kapatagan,F
+816,44,Lumba-Bayabao,F
+817,44,Lumbaca-Unayan,F
+818,44,Lumbatan,F
+819,44,Lumbayanague,F
+820,44,Madalum,F
+821,44,Madamba,F
+822,44,Maguing,F
+823,44,Malabang,F
+824,44,Marantao,F
+825,44,Marawi City,F
+826,44,Marogong,F
+827,44,Masiu,F
+828,44,Mulondo,F
+829,44,Pagayawan,F
+830,44,Piagapo,F
+831,44,Picong,F
+832,44,Poona Bayabao,F
+833,44,Pualas,F
+834,44,Saguiaran,F
+835,44,Sultan Dumalondong,F
+836,44,Tagoloan Ii,F
+837,44,Tamparan,F
+838,44,Taraka,F
+839,44,Tubaran,F
+840,44,Tugaya,F
+841,44,Wao,F
+842,41,Agoo,F
+843,41,Aringay,F
+844,41,Bacnotan,F
+845,41,Bagulin,F
+846,41,Balaoan,F
+847,41,Bangar,F
+848,41,Bauang,F
+849,41,Burgos,F
+850,41,Caba,F
+851,41,Luna,F
+852,41,Naguilian,F
+853,41,Pugo,F
+854,41,Rosario,F
+855,41,San Fernando City,F
+856,41,San Gabriel,F
+857,41,San Juan,F
+858,41,Santo Tomas,F
+859,41,Santol,F
+860,41,Sudipen,F
+861,41,Tubao,F
+862,45,Abuyog,F
+863,45,Alangalang,F
+864,45,Albuera,F
+865,45,Babatngon,F
+866,45,Barugo,F
+867,45,Bato,F
+868,45,Baybay City,F
+869,45,Burauen,F
+870,45,Calubian,F
+871,45,Capoocan,F
+872,45,Carigara,F
+873,45,Dagami,F
+874,45,Dulag,F
+875,45,Hilongos,F
+876,45,Hindang,F
+877,45,Inopacan,F
+878,45,Isabel,F
+879,45,Jaro,F
+880,45,Javier,F
+881,45,Julita,F
+882,45,Kananga,F
+883,45,La Paz,F
+884,45,Leyte,F
+885,45,Macarthur,F
+886,45,Mahaplag,F
+887,45,Matag-Ob,F
+888,45,Matalom,F
+889,45,Mayorga,F
+890,45,Merida,F
+891,45,Ormoc City,F
+892,45,Palo,F
+893,45,Palompon,F
+894,45,Pastrana,F
+895,45,San Isidro,F
+896,45,San Miguel,F
+897,45,Santa Fe,F
+898,45,Tabango,F
+899,45,Tabontabon,F
+900,45,Tacloban City,F
+901,45,Tanauan,F
+902,45,Tolosa,F
+903,45,Tunga,F
+904,45,Villaba,F
+905,46,Ampatuan,F
+906,46,Barira,F
+907,46,Buldon,F
+908,46,Buluan,F
+909,46,Cotabato City,F
+910,46,Datu Abdullah Sangki,F
+911,46,Datu Anggal Midtimbang,F
+912,46,Datu Blah T. Sinsuat,F
+913,46,Datu Hoffer Ampatuan,F
+914,46,Datu Odin Sinsuat,F
+915,46,Datu Paglas,F
+916,46,Datu Piang,F
+917,46,Datu Salibo,F
+918,46,Datu Saudi-Ampatuan,F
+919,46,Datu Unsay,F
+920,46,Gen. S. K. Pendatun,F
+921,46,Guindulungan,F
+922,46,Kabuntalan,F
+923,46,Mamasapano,F
+924,46,Mangudadatu,F
+925,46,Matanog,F
+926,46,Northern Kabuntalan,F
+927,46,Pagagawan,F
+928,46,Pagalungan,F
+929,46,Paglat,F
+930,46,Pandag,F
+931,46,Parang,F
+932,46,Rajah Buayan,F
+933,46,Shariff Aguak,F
+934,46,Shariff Saydona Mustapha,F
+935,46,South Upi,F
+936,46,Sultan Kudarat,F
+937,46,Sultan Mastura,F
+938,46,Sultan Sa Barongis,F
+939,46,Talayan,F
+940,46,Talitay,F
+941,46,Upi,F
+942,47,Boac,F
+943,47,Buenavista,F
+944,47,Gasan,F
+945,47,Mogpog,F
+946,47,Santa Cruz,F
+947,47,Torrijos,F
+948,48,Aroroy,F
+949,48,Baleno,F
+950,48,Balud,F
+951,48,Batuan,F
+952,48,Cataingan,F
+953,48,Cawayan,F
+954,48,Claveria,F
+955,48,Dimasalang,F
+956,48,Esperanza,F
+957,48,Mandaon,F
+958,48,Masbate City,F
+959,48,Milagros,F
+960,48,Mobo,F
+961,48,Monreal,F
+962,48,Palanas,F
+963,48,Pio V. Corpuz,F
+964,48,Placer,F
+965,48,San Fernando,F
+966,48,San Jacinto,F
+967,48,San Pascual,F
+968,48,Uson,F
+969,50,Aloran,F
+970,50,Baliangao,F
+971,50,Bonifacio,F
+972,50,Calamba,F
+973,50,Clarin,F
+974,50,Concepcion,F
+975,50,Don Victoriano Chiongbian,F
+976,50,Jimenez,F
+977,50,Lopez Jaena,F
+978,50,Oroquieta City,F
+979,50,Ozamis City,F
+980,50,Panaon,F
+981,50,Plaridel,F
+982,50,Sapang Dalaga,F
+983,50,Sinacaban,F
+984,50,Tangub City,F
+985,50,Tudela,F
+986,51,Alubijid,F
+987,51,Balingasag,F
+988,51,Balingoan,F
+989,51,Binuangan,F
+990,51,Cagayan de Oro City,F
+991,51,Claveria,F
+992,51,El Salvador City,F
+993,51,Gingoog City,F
+994,51,Gitagum,F
+995,51,Initao,F
+996,51,Jasaan,F
+997,51,Kinoguitan,F
+998,51,Lagonglong,F
+999,51,Laguindingan,F
+1000,51,Libertad,F
+1001,51,Lugait,F
+1002,51,Magsaysay,F
+1003,51,Manticao,F
+1004,51,Medina,F
+1005,51,Naawan,F
+1006,51,Opol,F
+1007,51,Salay,F
+1008,51,Sugbongcogon,F
+1009,51,Tagoloan,F
+1010,51,Talisayan,F
+1011,51,Villanueva,F
+1012,49,Caloocan City,T
+1013,49,Las Pinas City,T
+1014,49,Makati City,T
+1015,49,Malabon City,T
+1016,49,Mandaluyong City,T
+1017,49,Manila,T
+1018,49,Marikina City,T
+1019,49,Muntinlupa City,T
+1020,49,Navotas City,T
+1021,49,Paranaque City,T
+1022,49,Pasay City,T
+1023,49,Pasig City,T
+1024,49,Pateros,T
+1025,49,Quezon City,T
+1026,49,San Juan City,T
+1027,49,Taguig City,T
+1028,49,Valenzuela City,T
+1029,53,Cauayan,F
+1030,53,Enrique B. Magalona,F
+1031,53,Escalante City,F
+1032,53,Himamaylan City,F
+1033,53,Hinigaran,F
+1034,53,Hinoba-An,F
+1035,53,Ilog,F
+1036,53,Isabela,F
+1037,53,Kabankalan City,F
+1038,53,La Carlota City,F
+1039,53,La Castellana,F
+1040,53,Manapla,F
+1041,53,Moises Padilla,F
+1042,53,Murcia,F
+1043,53,Pontevedra,F
+1044,53,Pulupandan,F
+1045,53,Sagay City,F
+1046,53,Salvador Benedicto,F
+1047,53,San Carlos City,F
+1048,53,San Enrique,F
+1049,53,Silay City,F
+1050,53,Sipalay City,F
+1051,53,Talisay City,F
+1052,53,Toboso,F
+1053,53,Valladolid,F
+1054,53,Victorias City,F
+1055,54,Amlan,F
+1056,54,Ayungon,F
+1057,54,Bacong,F
+1058,54,Bais City,F
+1059,54,Basay,F
+1060,54,Bayawan City,F
+1061,54,Bindoy,F
+1062,54,Canlaon City,F
+1063,54,Dauin,F
+1064,54,Dumaguete City,F
+1065,54,Guihulngan City,F
+1066,54,Jimalalud,F
+1067,54,La Libertad,F
+1068,54,Mabinay,F
+1069,54,Manjuyod,F
+1070,54,Pamplona,F
+1071,54,San Jose,F
+1072,54,Santa Catalina,F
+1073,54,Siaton,F
+1074,54,Sibulan,F
+1075,54,Tanjay City,F
+1076,54,Tayasan,F
+1077,54,Valencia,F
+1078,54,Vallehermoso,F
+1079,54,Zamboanguita,F
+1080,55,Allen,F
+1081,55,Biri,F
+1082,55,Bobon,F
+1083,55,Capul,F
+1084,55,Catarman,F
+1085,55,Catubig,F
+1086,55,Gamay,F
+1087,55,Laoang,F
+1088,55,Lapinig,F
+1089,55,Las Navas,F
+1090,55,Lavezares,F
+1091,55,Lope de Vega,F
+1092,55,Mapanas,F
+1093,55,Mondragon,F
+1094,55,Palapag,F
+1095,55,Pambujan,F
+1096,55,Rosario,F
+1097,55,San Antonio,F
+1098,55,San Isidro,F
+1099,55,San Jose,F
+1100,55,San Roque,F
+1101,55,San Vicente,F
+1102,55,Silvino Lobos,F
+1103,55,Victoria,F
+1104,56,Aliaga,F
+1105,56,Bongabon,F
+1106,56,Cabanatuan City,F
+1107,56,Cabiao,F
+1108,56,Carranglan,F
+1109,56,Cuyapo,F
+1110,56,Gabaldon,F
+1111,56,Gapan City,F
+1112,56,General Mamerto Natividad,F
+1113,56,General Tinio,F
+1114,56,Guimba,F
+1115,56,Jaen,F
+1116,56,Laur,F
+1117,56,Licab,F
+1118,56,Llanera,F
+1119,56,Lupao,F
+1120,56,Nampicuan,F
+1121,56,Palayan City,F
+1122,56,Pantabangan,F
+1123,56,Penaranda,F
+1124,56,Quezon,F
+1125,56,Rizal,F
+1126,56,San Antonio,F
+1127,56,San Isidro,F
+1128,56,San Jose City,F
+1129,56,San Leonardo,F
+1130,56,Santa Rosa,F
+1131,56,Santo Domingo,F
+1132,56,Science City of Munoz,F
+1133,56,Talavera,F
+1134,56,Talugtug,F
+1135,56,Zaragoza,F
+1136,57,Alfonso Castaneda,F
+1137,57,Ambaguio,F
+1138,57,Aritao,F
+1139,57,Bagabag,F
+1140,57,Bambang,F
+1141,57,Bayombong,F
+1142,57,Diadi,F
+1143,57,Dupax Del Norte,F
+1144,57,Dupax Del Sur,F
+1145,57,Kasibu,F
+1146,57,Kayapa,F
+1147,57,Quezon,F
+1148,57,Santa Fe,F
+1149,57,Solano,F
+1150,57,Villaverde,F
+1151,58,Abra de Ilog,F
+1152,58,Calintaan,F
+1153,58,Looc,F
+1154,58,Lubang,F
+1155,58,Magsaysay,F
+1156,58,Mamburao,F
+1157,58,Paluan,F
+1158,58,Rizal,F
+1159,58,Sablayan,F
+1160,58,San Jose,F
+1161,58,Santa Cruz,F
+1162,59,Baco,F
+1163,59,Bansud,F
+1164,59,Bongabong,F
+1165,59,Bulalacao,F
+1166,59,Calapan City,F
+1167,59,Gloria,F
+1168,59,Mansalay,F
+1169,59,Naujan,F
+1170,59,Pinamalayan,F
+1171,59,Pola,F
+1172,59,Puerto Galera,F
+1173,59,Roxas,F
+1174,59,San Teodoro,F
+1175,59,Socorro,F
+1176,59,Victoria,F
+1177,60,Aborlan,F
+1178,60,Agutaya,F
+1179,60,Araceli,F
+1180,60,Balabac,F
+1181,60,Bataraza,F
+1182,60,Brooke's Point,F
+1183,60,Busuanga,F
+1184,60,Cagayancillo,F
+1185,60,Coron,F
+1186,60,Culion,F
+1187,60,Cuyo,F
+1188,60,Dumaran,F
+1189,60,El Nido,F
+1190,60,Kalayaan,F
+1191,60,Linapacan,F
+1192,60,Magsaysay,F
+1193,60,Narra,F
+1194,60,Puerto Princesa City,F
+1195,60,Quezon,F
+1196,60,Rizal,F
+1197,60,Roxas,F
+1198,60,San Vicente,F
+1199,60,Sofronio Espanola,F
+1200,60,Taytay,F
+1201,61,Angeles City,F
+1202,61,Apalit,F
+1203,61,Arayat,F
+1204,61,Bacolor,F
+1205,61,Candaba,F
+1206,61,Floridablanca,F
+1207,61,Guagua,F
+1208,61,Lubao,F
+1209,61,Mabalacat City,F
+1210,61,Macabebe,F
+1211,61,Magalang,F
+1212,61,Masantol,F
+1213,61,Mexico,F
+1214,61,Minalin,F
+1215,61,Porac,F
+1216,61,San Fernando City,F
+1217,61,San Luis,F
+1218,61,San Simon,F
+1219,61,Santa Ana,F
+1220,61,Santa Rita,F
+1221,61,Santo Tomas,F
+1222,61,Sasmuan,F
+1223,62,Agno,F
+1224,62,Aguilar,F
+1225,62,Alaminos City,F
+1226,62,Alcala,F
+1227,62,Anda,F
+1228,62,Asingan,F
+1229,62,Balungao,F
+1230,62,Bani,F
+1231,62,Basista,F
+1232,62,Bautista,F
+1233,62,Bayambang,F
+1234,62,Binalonan,F
+1235,62,Binmaley,F
+1236,62,Bolinao,F
+1237,62,Bugallon,F
+1238,62,Burgos,F
+1239,62,Calasiao,F
+1240,62,Dagupan City,F
+1241,62,Dasol,F
+1242,62,Infanta,F
+1243,62,Labrador,F
+1244,62,Laoac,F
+1245,62,Lingayen,F
+1246,62,Mabini,F
+1247,62,Malasiqui,F
+1248,62,Manaoag,F
+1249,62,Mangaldan,F
+1250,62,Mangatarem,F
+1251,62,Mapandan,F
+1252,62,Natividad,F
+1253,62,Pozorrubio,F
+1254,62,Rosales,F
+1255,62,San Carlos City,F
+1256,62,San Fabian,F
+1257,62,San Jacinto,F
+1258,62,San Manuel,F
+1259,62,San Nicolas,F
+1260,62,San Quintin,F
+1261,62,Santa Barbara,F
+1262,62,Santa Maria,F
+1263,62,Santo Tomas,F
+1264,62,Sison,F
+1265,62,Sual,F
+1266,62,Tayug,F
+1267,62,Umingan,F
+1268,62,Urbiztondo,F
+1269,62,Urdaneta City,F
+1270,62,Villasis,F
+1271,63,Agdangan,F
+1272,63,Alabat,F
+1273,63,Atimonan,F
+1274,63,Buenavista,F
+1275,63,Burdeos,F
+1276,63,Calauag,F
+1277,63,Candelaria,F
+1278,63,Catanauan,F
+1279,63,Dolores,F
+1280,63,General Luna,F
+1281,63,General Nakar,F
+1282,63,Guinayangan,F
+1283,63,Gumaca,F
+1284,63,Infanta,F
+1285,63,Jomalig,F
+1286,63,Lopez,F
+1287,63,Lucban,F
+1288,63,Lucena City,F
+1289,63,Macalelon,F
+1290,63,Mauban,F
+1291,63,Mulanay,F
+1292,63,Padre Burgos,F
+1293,63,Pagbilao,F
+1294,63,Panukulan,F
+1295,63,Patnanungan,F
+1296,63,Perez,F
+1297,63,Pitogo,F
+1298,63,Plaridel,F
+1299,63,Polillo,F
+1300,63,Quezon,F
+1301,63,Real,F
+1302,63,Sampaloc,F
+1303,63,San Andres,F
+1304,63,San Antonio,F
+1305,63,San Francisco,F
+1306,63,San Narciso,F
+1307,63,Sariaya,F
+1308,63,Tagkawayan,F
+1309,63,Tayabas City,F
+1310,63,Tiaong,F
+1311,63,Unisan,F
+1312,64,Aglipay,F
+1313,64,Cabarroguis,F
+1314,64,Diffun,F
+1315,64,Maddela,F
+1316,64,Nagtipunan,F
+1317,64,Saguday,F
+1318,65,Angono,F
+1319,65,Antipolo City,T
+1320,65,Baras,F
+1321,65,Binangonan,F
+1322,65,Cainta,T
+1323,65,Cardona,F
+1324,65,Jala-Jala,F
+1325,65,Morong,F
+1326,65,Pililla,F
+1327,65,Rodriguez,F
+1328,65,San Mateo,T
+1329,65,Tanay,F
+1330,65,Taytay,T
+1331,65,Teresa,F
+1332,66,Alcantara,F
+1333,66,Banton,F
+1334,66,Cajidiocan,F
+1335,66,Calatrava,F
+1336,66,Concepcion,F
+1337,66,Corcuera,F
+1338,66,Ferrol,F
+1339,66,Looc,F
+1340,66,Magdiwang,F
+1341,66,Odiongan,F
+1342,66,Romblon,F
+1343,66,San Agustin,F
+1344,66,San Andres,F
+1345,66,San Fernando,F
+1346,66,San Jose,F
+1347,66,Santa Fe,F
+1348,66,Santa Maria,F
+1349,67,Almagro,F
+1350,67,Basey,F
+1351,67,Calbayog City,F
+1352,67,Calbiga,F
+1353,67,Catbalogan City,F
+1354,67,Daram,F
+1355,67,Gandara,F
+1356,67,Hinabangan,F
+1357,67,Jiabong,F
+1358,67,Marabut,F
+1359,67,Matuguinao,F
+1360,67,Motiong,F
+1361,67,Pagsanghan,F
+1362,67,Paranas,F
+1363,67,Pinabacdao,F
+1364,67,San Jorge,F
+1365,67,San Jose de Buan,F
+1366,67,San Sebastian,F
+1367,67,Santa Margarita,F
+1368,67,Santa Rita,F
+1369,67,Santo Nino,F
+1370,67,Tagapul-An,F
+1371,67,Talalora,F
+1372,67,Tarangnan,F
+1373,67,Villareal,F
+1374,67,Zumarraga,F
+1375,68,Alabel,F
+1376,68,Glan,F
+1377,68,Kiamba,F
+1378,68,Maasim,F
+1379,68,Maitum,F
+1380,68,Malapatan,F
+1381,68,Malungon,F
+1382,69,Enrique Villanueva,F
+1383,69,Larena,F
+1384,69,Lazi,F
+1385,69,Maria,F
+1386,69,San Juan,F
+1387,69,Siquijor,F
+1388,70,Barcelona,F
+1389,70,Bulan,F
+1390,70,Bulusan,F
+1391,70,Casiguran,F
+1392,70,Castilla,F
+1393,70,Donsol,F
+1394,70,Gubat,F
+1395,70,Irosin,F
+1396,70,Juban,F
+1397,70,Magallanes,F
+1398,70,Matnog,F
+1399,70,Pilar,F
+1400,70,Prieto Diaz,F
+1401,70,Santa Magdalena,F
+1402,70,Sorsogon City,F
+1403,71,Banga,F
+1404,71,General Santos City,F
+1405,71,Koronadal City,F
+1406,71,Lake Sebu,F
+1407,71,Norala,F
+1408,71,Polomolok,F
+1409,71,Santo Nino,F
+1410,71,Surallah,F
+1411,71,T'Boli,F
+1412,71,Tampakan,F
+1413,71,Tantangan,F
+1414,71,Tupi,F
+1415,72,Anahawan,F
+1416,72,Bontoc,F
+1417,72,Hinunangan,F
+1418,72,Hinundayan,F
+1419,72,Libagon,F
+1420,72,Liloan,F
+1421,72,Limasawa,F
+1422,72,Maasin City,F
+1423,72,Macrohon,F
+1424,72,Malitbog,F
+1425,72,Padre Burgos,F
+1426,72,Pintuyan,F
+1427,72,Saint Bernard,F
+1428,72,San Francisco,F
+1429,72,San Juan,F
+1430,72,San Ricardo,F
+1431,72,Silago,F
+1432,72,Sogod,F
+1433,72,Tomas Oppus,F
+1434,73,Bagumbayan,F
+1435,73,Columbio,F
+1436,73,Esperanza,F
+1437,73,Isulan,F
+1438,73,Kalamansig,F
+1439,73,Lambayong,F
+1440,73,Lebak,F
+1441,73,Lutayan,F
+1442,73,Palimbang,F
+1443,73,President Quirino,F
+1444,73,Sen. Ninoy Aquino,F
+1445,73,Tacurong City,F
+1446,74,Hadji Panglima Tahil,F
+1447,74,Indanan,F
+1448,74,Jolo,F
+1449,74,Kalingalan Caluang,F
+1450,74,Lugus,F
+1451,74,Luuk,F
+1452,74,Maimbung,F
+1453,74,Old Panamao,F
+1454,74,Omar,F
+1455,74,Pandami,F
+1456,74,Panglima Estino,F
+1457,74,Pangutaran,F
+1458,74,Parang,F
+1459,74,Pata,F
+1460,74,Patikul,F
+1461,74,Siasi,F
+1462,74,Talipao,F
+1463,74,Tapul,F
+1464,74,Tongkil,F
+1465,75,Alegria,F
+1466,75,Bacuag,F
+1467,75,Burgos,F
+1468,75,Claver,F
+1469,75,Dapa,F
+1470,75,Del Carmen,F
+1471,75,General Luna,F
+1472,75,Gigaquit,F
+1473,75,Mainit,F
+1474,75,Malimono,F
+1475,75,Pilar,F
+1476,75,Placer,F
+1477,75,San Benito,F
+1478,75,San Francisco,F
+1479,75,San Isidro,F
+1480,75,Santa Monica,F
+1481,75,Sison,F
+1482,75,Socorro,F
+1483,75,Surigao City,F
+1484,75,Tagana-An,F
+1485,75,Tubod,F
+1486,76,Barobo,F
+1487,76,Bayabas,F
+1488,76,Bislig City,F
+1489,76,Cagwait,F
+1490,76,Cantilan,F
+1491,76,Carmen,F
+1492,76,Carrascal,F
+1493,76,Cortes,F
+1494,76,Hinatuan,F
+1495,76,Lanuza,F
+1496,76,Lianga,F
+1497,76,Lingig,F
+1498,76,Madrid,F
+1499,76,Marihatag,F
+1500,76,San Agustin,F
+1501,76,San Miguel,F
+1502,76,Tagbina,F
+1503,76,Tago,F
+1504,76,Tandag City,F
+1505,77,Anao,F
+1506,77,Bamban,F
+1507,77,Camiling,F
+1508,77,Capas,F
+1509,77,Concepcion,F
+1510,77,Gerona,F
+1511,77,La Paz,F
+1512,77,Mayantoc,F
+1513,77,Moncada,F
+1514,77,Paniqui,F
+1515,77,Pura,F
+1516,77,Ramos,F
+1517,77,San Clemente,F
+1518,77,San Jose,F
+1519,77,San Manuel,F
+1520,77,Santa Ignacia,F
+1521,77,Tarlac City,F
+1522,77,Victoria,F
+1523,78,Bongao,F
+1524,78,Languyan,F
+1525,78,Mapun,F
+1526,78,Panglima Sugala,F
+1527,78,Sapa-Sapa,F
+1528,78,Sibutu,F
+1529,78,Simunul,F
+1530,78,Sitangkai,F
+1531,78,South Ubian,F
+1532,78,Tandubas,F
+1533,78,Turtle Islands,F
+1534,79,Botolan,F
+1535,79,Cabangan,F
+1536,79,Candelaria,F
+1537,79,Castillejos,F
+1538,79,Iba,F
+1539,79,Masinloc,F
+1540,79,Olongapo City,F
+1541,79,Palauig,F
+1542,79,San Antonio,F
+1543,79,San Felipe,F
+1544,79,San Marcelino,F
+1545,79,San Narciso,F
+1546,79,Santa Cruz,F
+1547,79,Subic,F
+1548,80,Bacungan,F
+1549,80,Baliguian,F
+1550,80,Dapitan City,F
+1551,80,Dipolog City,F
+1552,80,Godod,F
+1553,80,Gutalac,F
+1554,80,Jose Dalman,F
+1555,80,Kalawit,F
+1556,80,Katipunan,F
+1557,80,La Libertad,F
+1558,80,Labason,F
+1559,80,Liloy,F
+1560,80,Manukan,F
+1561,80,Mutia,F
+1562,80,Pinan,F
+1563,80,Polanco,F
+1564,80,Pres. Manuel A. Roxas,F
+1565,80,Rizal,F
+1566,80,Salug,F
+1567,80,Sergio Osmena Sr.,F
+1568,80,Siayan,F
+1569,80,Sibuco,F
+1570,80,Sibutad,F
+1571,80,Sindangan,F
+1572,80,Siocon,F
+1573,80,Sirawai,F
+1574,80,Tampilisan,F
+1575,81,Aurora,F
+1576,81,Bayog,F
+1577,81,Dimataling,F
+1578,81,Dinas,F
+1579,81,Dumalinao,F
+1580,81,Dumingag,F
+1581,81,Guipos,F
+1582,81,Josefina,F
+1583,81,Kumalarang,F
+1584,81,Labangan,F
+1585,81,Lakewood,F
+1586,81,Lapuyan,F
+1587,81,Mahayag,F
+1588,81,Margosatubig,F
+1589,81,Midsalip,F
+1590,81,Molave,F
+1591,81,Pagadian City,F
+1592,81,Pitogo,F
+1593,81,Ramon Magsaysay,F
+1594,81,San Miguel,F
+1595,81,San Pablo,F
+1596,81,Sominot,F
+1597,81,Tabina,F
+1598,81,Tambulig,F
+1599,81,Tigbao,F
+1600,81,Tukuran,F
+1601,81,Vincenzo A. Sagun,F
+1602,81,Zamboanga City,F
+1603,82,Alicia,F
+1604,82,Buug,F
+1605,82,Diplahan,F
+1606,82,Imelda,F
+1607,82,Ipil,F
+1608,82,Kabasalan,F
+1609,82,Mabuhay,F
+1610,82,Malangas,F
+1611,82,Naga,F
+1612,82,Olutanga,F
+1613,82,Payao,F
+1614,82,Roseller Lim,F
+1615,82,Siay,F
+1616,82,Talusan,F
+1617,82,Titay,F
+1618,82,Tungawan,F

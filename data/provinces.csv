@@ -1,0 +1,83 @@
+id,name,is_pickup_available
+93,Metro Manila,T
+94,Abra,F
+95,Agusan Del Norte,F
+96,Agusan Del Sur,F
+97,Aklan,F
+98,Albay,F
+99,Antique,F
+100,Apayao,F
+101,Aurora,F
+102,Basilan,F
+103,Bataan,F
+104,Batanes,F
+105,Batangas,F
+106,Benguet,F
+107,Biliran,F
+108,Bohol,F
+109,Bukidnon,F
+110,Bulacan,T
+111,Cagayan,F
+112,Camarines Norte,F
+113,Camarines Sur,F
+114,Camiguin,F
+115,Capiz,F
+116,Cantanduanes,F
+117,Cavite,T
+118,Cebu,F
+119,Cotabato,F
+120,Davao Del Norte,F
+121,Davao Del Sur,F
+122,Davao Occidental,F
+123,Davao Oriental,F
+124,Davao de Oro,F
+125,Dinagat Islands,F
+126,Eastern Samar,F
+127,Guimaras,F
+128,Ifugao,F
+129,Ilocos Norte,F
+130,Ilocos Sur,F
+131,Iloilo,F
+132,Isabela,F
+133,Kalinga,F
+134,La Union,F
+135,Laguna,T
+136,Lanao Del Norte,F
+137,Lanao Del Sur,F
+138,Leyte,F
+139,Maguindanao,F
+140,Marinduque,F
+141,Masbate,F
+142,Misamis Occidental,F
+143,Misamis Oriental,F
+144,Mountain Province,F
+145,Negros Occidental,F
+146,Negros Oriental,F
+147,Northern Samar,F
+148,Nueva Ecija,F
+149,Nueva Vizcaya,F
+150,Occidental Mindoro,F
+151,Oriental Mindoro,F
+152,Palawan,F
+153,Pampanga,F
+154,Pangasinan,F
+155,Quezon,F
+156,Quirino,F
+157,Rizal,T
+158,Romblon,F
+159,Samar,F
+160,Sarangani,F
+161,Suquijor,F
+162,Sorsogon,F
+163,South Cotabato,F
+164,Southern Leyte,F
+165,Sultan Kudarat,F
+166,Sulu,F
+167,Surigao Del Norte,F
+168,Surigao Del Sur,F
+169,Tarlac,F
+170,Tawi-Tawi,F
+171,Zambales,F
+172,Zamboaga Del Norte,F
+173,Zamboaga Del Sur,F
+174,Zamboaga Sibugay,F
