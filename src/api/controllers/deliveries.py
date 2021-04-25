@@ -1,9 +1,30 @@
-from flask import Blueprint, request
+import os, sys, subprocess, platform
+import pdfkit
+from flask import Blueprint, request, send_from_directory, current_app, send_file, make_response, render_template
 from src.api.services import DeliveryService
 from src.utils import response_creator, get_request_data, protected
 
 deliveries = Blueprint('Deliveries', __name__, url_prefix='/deliveries')
 delivery_service = DeliveryService()
+
+if platform.system() == 'Windows':
+    pdfkit_config = pdfkit.configuration(
+        wkhtmltopdf=os.environ.get('WKHTMLTOPDF_PATH', 'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe')
+    )
+else:
+    WKHTMLTOPDF_CMD = subprocess.Popen(['which', os.environ.get('WKHTMLTOPDF_PATH', '/app/bin/wkhtmltopdf')],
+                                       stdout=subprocess.PIPE).communicate()[0].strip()
+    pdfkit_config = pdfkit.configuration(wkhtmltopdf=WKHTMLTOPDF_CMD)
+
+body = {
+    "data": {
+        "order_id": 123,
+        "order_creation_date": "2020-01-01 14:14:52",
+        "company_name": "Test Company",
+        "city": "Mumbai",
+        "state": "MH",
+    }
+}
 
 
 @deliveries.route('<filter_id>')
@@ -115,3 +136,17 @@ def modify_delivery(delivery_id, **kwargs):
     data = get_request_data(request, **kwargs)
 
     return delivery_service.modify_delivery(delivery_id, data)
+
+
+@deliveries.route('<delivery_id>/receipts')
+def download_receipt(delivery_id, **kwargs):
+    html = render_template('receipt.html', json_data=body['data'])
+    pdf = pdfkit.from_string(html, False, configuration=pdfkit_config)
+    data = get_request_data(request, **kwargs)
+    delivery_info = delivery_service.get_delivery(delivery_id, data)
+    response = make_response(pdf)
+    content_disposition = 'attachment; filename=receipt-' + delivery_id + '.pdf'
+    response.headers['Content-Type'] = 'application/pdf'
+    response.headers['Content-Disposition'] = content_disposition
+
+    return response

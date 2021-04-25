@@ -24,6 +24,13 @@ flask-cors = "*"
 requests = "*"
 gevent = "*"
 cffi = "*"
+pypdf2 = "*"
+python-docx = "*"
+comtypes = "*"
+pdfkit = "*"
+python-pdf = "*"
+mammoth = "*"
+jinja2 = "*"
 
 [dev-packages]
 

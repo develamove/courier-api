@@ -45,5 +45,6 @@ server_config = ServerConfig()
 if __name__ == "__main__":
     app.run(
         host=server_config.APPS_HOST,
-        port=server_config.APPS_PORT
+        port=server_config.APPS_PORT,
+        debug=True
     )
