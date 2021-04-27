@@ -452,3 +452,16 @@ modify_delivery_schema = {
             }
         }
     }
+
+create_event_schema = {
+    'name': {
+        'type': 'string',
+        'empty': False,
+        'required': True,
+        'allowed': ['for_pickup', 'picked_up', 'in_transit', 'failed_delivery', 'delivered', 'cancelled']
+    },
+    'remarks': {
+        'type': 'string',
+        'maxlength': 100
+    }
+}

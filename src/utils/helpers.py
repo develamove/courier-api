@@ -1,15 +1,19 @@
 import random
 import math
 import string
-from typing import Any, List, Dict
+from typing import List, Dict
 
 
 def create_tracking_id():
-    # Create a 12 digit random string
-    return get_random_str(3).upper() + get_random_digits(9)
+    """Create a 12 random string
+
+    Returns:
+        a tracking number
+    """
+    return get_random_str(4).upper() + get_random_digits(8)
 
 
-def get_random_str(str_len):
+def get_random_str(str_len: int):
     random_str = ''
 
     for counter in range(str_len):
@@ -18,7 +22,7 @@ def get_random_str(str_len):
     return random_str
 
 
-def get_random_digits(num_len):
+def get_random_digits(num_len: int):
     digits = [i for i in range(0, 10)]
     random_str = ''
 

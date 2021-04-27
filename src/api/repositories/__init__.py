@@ -7,3 +7,4 @@ from .recipient import RecipientRepository
 from .province import ProvinceRepository
 from .city import CityRepository
 from .district import DistrictRepository
+from .event import EventRepository

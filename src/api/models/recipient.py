@@ -1,12 +1,13 @@
-from src.extensions import database, marshmallow
-from sqlalchemy import func, Column, DateTime, ForeignKey, Integer, String
 from marshmallow import fields
+from sqlalchemy import func, Column, DateTime, ForeignKey, Integer, String
+from src.extensions import database, marshmallow
 
 
 class RecipientModel(database.Model):
     __tablename__ = 't_recipient'
 
     id = Column(Integer, primary_key=True)
+    delivery_id = database.Column(Integer, ForeignKey('t_delivery.id'))
     full_name = Column(String(60))
     cellphone_no = Column(String(13))
     email = Column(String(60))
@@ -16,22 +17,22 @@ class RecipientModel(database.Model):
     street = Column(String(100))
     landmarks = Column(String(100))
     postal_code = Column(String(20))
-    set_timestamp = Column(DateTime, nullable=True)
+    updated_timestamp = Column(DateTime, nullable=True)
     created_timestamp = Column(DateTime, nullable=False, server_default=func.current_timestamp())
-    delivery_id = database.Column(Integer, ForeignKey('t_delivery.id'))
 
-    def __init__(self, full_name, cellphone_no, province, city, district, postal_code, delivery_id, email='', street='',
-                 landmarks=''):
+    def __init__(self, delivery_id, full_name, cellphone_no, province, city, district, street, postal_code, email='',
+                 landmarks='', **kwargs):
+        super(RecipientModel, self).__init__(**kwargs)
+        self.delivery_id = delivery_id
         self.full_name = full_name
         self.email = email
         self.cellphone_no = cellphone_no
         self.province = province
         self.city = city
         self.district = district
-        self.postal_code = postal_code
         self.street = street
         self.landmarks = landmarks
-        self.delivery_id = delivery_id
+        self.postal_code = postal_code
 
     def __repr__(self):
         return '<Recipient %r>' % self.full_name
@@ -44,12 +45,14 @@ class RecipientSchema(marshmallow.SQLAlchemyAutoSchema):
 
     id = fields.Int(dump_only=True)
     delivery_id = fields.Int(dump_only=True)
-    email = fields.Str(missing='')
+    full_name = fields.Str(missing='')
     cellphone_no = fields.Str(missing='')
+    email = fields.Str(missing='')
     province = fields.Str(missing='')
     city = fields.Str(missing='')
     district = fields.Str(missing='')
+    street = fields.Str(missing='')
     landmarks = fields.Str(missing='')
     postal_code = fields.Str(missing='')
-    set_timestamp = fields.DateTime()
-    registered_timestamp = fields.DateTime(dump_only=True)
+    updated_timestamp = fields.DateTime(dump_only=True, format='%Y-%m-%d %H:%M:%S%z')
+    created_timestamp = fields.DateTime(dump_only=True, format='%Y-%m-%d %H:%M:%S%z')

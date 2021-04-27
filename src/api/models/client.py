@@ -1,6 +1,6 @@
-from src.extensions import bcrypt, database, marshmallow
-from sqlalchemy import Column, DateTime, Integer, String, func
 from marshmallow import fields
+from sqlalchemy import Column, DateTime, Integer, String, func
+from src.extensions import bcrypt, database, marshmallow
 
 
 class ClientModel(database.Model):
@@ -19,11 +19,12 @@ class ClientModel(database.Model):
     district = Column(String(50))
     street = Column(String(50))
     landmarks = Column(String(50))
-    set_timestamp = Column(DateTime, nullable=True)
+    updated_timestamp = Column(DateTime, nullable=True)
     registered_timestamp = Column(DateTime, nullable=False, server_default=func.current_timestamp())
 
     def __init__(self, first_name, username, password, last_name, email, cellphone_no='', province='', city='',
-                 district='', middle_name='', street='', landmarks=''):
+                 district='', middle_name='', street='', landmarks='', **kwargs):
+        super(ClientModel, self).__init__(**kwargs)
         self.username = username
         self.password = bcrypt.generate_password_hash(password)
         self.first_name = first_name
@@ -62,6 +63,5 @@ class ClientSchema(marshmallow.SQLAlchemyAutoSchema):
     city = fields.Str(missing='')
     district = fields.Str(missing='')
     landmarks = fields.Str(missing='')
-    set_timestamp = fields.DateTime()
-    registered_timestamp = fields.DateTime(dump_only=True)
-
+    updated_timestamp = fields.DateTime(dump_only=True, format='%Y-%m-%d %H:%M:%S%z')
+    registered_timestamp = fields.DateTime(dump_only=True, format='%Y-%m-%d %H:%M:%S%z')

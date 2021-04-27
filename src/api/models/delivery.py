@@ -1,6 +1,10 @@
-from src.extensions import database, marshmallow
-from sqlalchemy import Column, DateTime, Integer, String, func, Text
 from marshmallow import fields
+from sqlalchemy import Column, DateTime, Integer, String, func, Text, ForeignKey
+from sqlalchemy.orm import relationship
+from src.api.models.sender import SenderSchema
+from src.api.models.recipient import RecipientSchema
+from src.api.models.event import EventSchema
+from src.extensions import database, marshmallow
 
 
 class DeliveryModel(database.Model):
@@ -8,56 +12,42 @@ class DeliveryModel(database.Model):
 
     id = Column(Integer, primary_key=True)
     client_id = Column(Integer)
-    tracking_id = Column(String(40))
+    tracking_number = Column(String(20))
     receipt_id = Column(String(30))
-    is_cod = Column(String(1), nullable=False)
-    is_provincial = Column(String(1), nullable=False)
-    is_for_pick_up = Column(String(1), nullable=False)
-    is_already_pick_up = Column(String(1), nullable=False)
-    is_in_transit = Column(String(1), nullable=False)
-    is_remitted = Column(String(1), nullable=False)
-    is_delivered = Column(String(1), nullable=False)
-    is_successful = Column(String(1), nullable=False)
-    is_cancelled = Column(String(1), nullable=False)
-    retry = Column(Integer)
-    item_name = Column(String(50))
+    item_description = Column(String(50))
     item_type = Column(String(5), nullable=False)
-    item_amount = Column(Integer, nullable=False)
-    item_weight = Column(Integer, nullable=False)
-    total_amount = Column(Integer)
-    comments = Column(Text(200))
-    set_user = Column(String(20))
-    set_timestamp = Column(DateTime, nullable=True)
+    item_value = Column(Integer, nullable=False)
+    shipping_fee = Column(Integer, nullable=False)
+    insurance_fee = Column(Integer, nullable=False)
+    payment_method = Column(String(10), nullable=False)
+    failure_reason = Column(Text(200))
+    cancellation_reason = Column(Text(200))
+    total = Column(Integer)
+    remarks = Column(Text(200))
+    status = Column(String(20))
+    updated_timestamp = Column(DateTime, nullable=True)
     created_timestamp = Column(DateTime, nullable=False, server_default=func.current_timestamp())
+    sender = relationship('SenderModel', uselist=False, lazy=True)
+    recipient = relationship('RecipientModel', uselist=False, lazy=True)
+    events = relationship('EventModel', backref='t_delivery', lazy=True)
 
-    def __init__(self, client_id, tracking_id, item_name, item_type, item_amount, is_cod, is_provincial, item_value=0,
-                 item_weight=1, item_protection=0, total_amount=0, receipt_id='', is_for_pick_up='T',
-                 is_already_pick_up='F', is_in_transit='F', is_remitted='F', is_delivered='F', is_successful='F',
-                 is_cancelled='F', comments='', retry=1):
-        self.tracking_id = tracking_id
+    def __init__(self, client_id, tracking_number, item_description, item_type, item_value, shipping_fee,
+                 payment_method, total, status, receipt_id='', insurance_fee=0, **kwargs):
+        super(DeliveryModel, self).__init__(**kwargs)
         self.client_id = client_id
+        self.tracking_number = tracking_number
         self.receipt_id = receipt_id
-        self.is_cod = is_cod
-        self.is_provincial = is_provincial
-        self.is_for_pick_up = is_for_pick_up
-        self.is_already_pick_up = is_already_pick_up
-        self.is_in_transit = is_in_transit
-        self.is_remitted = is_remitted
-        self.is_delivered = is_delivered
-        self.is_successful = is_successful
-        self.is_cancelled = is_cancelled
-        self.retry = retry
-        self.item_name = item_name
+        self.item_description = item_description
         self.item_type = item_type
         self.item_value = item_value
-        self.item_protection = item_protection
-        self.item_weight = item_weight
-        self.item_amount = item_amount
-        self.total_amount = total_amount
-        self.comments = comments
+        self.shipping_fee = shipping_fee
+        self.payment_method = payment_method
+        self.total = total
+        self.status = status
+        self.insurance_fee = insurance_fee
 
     def __repr__(self):
-        return '<DeliveryLogs %r>' % self.tracking_id
+        return '<Delivery %r>' % self.tracking_number
 
 
 class DeliverySchema(marshmallow.SQLAlchemyAutoSchema):
@@ -67,25 +57,21 @@ class DeliverySchema(marshmallow.SQLAlchemyAutoSchema):
 
     id = fields.Int(dump_only=True)
     client_id = fields.Int(dump_only=True)
-    tracking_id = fields.Str(missing='')
+    tracking_number = fields.Str(missing='')
     receipt_id = fields.Str(missing='')
-    is_cod = fields.Str(missing='')
-    is_provincial = fields.Str(missing='')
-    is_for_pick_up = fields.Str(missing='')
-    is_already_pick_up = fields.Str(missing='')
-    is_remitted = fields.Str(missing='')
-    is_delivered = fields.Str(missing='')
-    is_successful = fields.Str(missing='')
-    is_cancelled = fields.Str(missing='')
-    item_name = fields.Str(missing='')
+    item_description = fields.Str(missing='')
     item_type = fields.Str(missing='')
     item_value = fields.Int(missing=0)
-    item_weight = fields.Int(missing=0)
-    item_protection = fields.Int(missing=0)
-    item_amount = fields.Int(missing=0)
-    total_amount = fields.Int(missing=0)
-    retry = fields.Int(missing=1)
-    comments = fields.Str(missing='')
-    set_user = fields.DateTime(dump_only=True)
-    set_timestamp = fields.DateTime(dump_only=True)
-    created_timestamp = fields.DateTime(dump_only=True)
+    shipping_fee = fields.Int(dump_only=True)
+    insurance_fee = fields.Int(dump_only=True)
+    total = fields.Int(missing=0)
+    payment_method = fields.Str(missing='')
+    failure_reason = fields.Str(missing='')
+    cancellation_reason = fields.Str(missing='')
+    status = fields.Str(missing='')
+    remarks = fields.Str(missing='')
+    updated_timestamp = fields.DateTime(dump_only=True, format='%Y-%m-%d %H:%M:%S%z')
+    created_timestamp = fields.DateTime(dump_only=True, format='%Y-%m-%d %H:%M:%S%z')
+    sender = fields.Nested(SenderSchema)
+    recipient = fields.Nested(RecipientSchema)
+    events = fields.Nested(EventSchema, many=True)

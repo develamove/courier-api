@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "bb96367f7b3500adb48ce5c83ce82721807f34d50c28427a45cce6c1afb9b448"
+            "sha256": "9d46d82a3dec9379b15e2c6157b9a6484099462cac6673d10ffb704905c4d86f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -36,6 +36,12 @@
             ],
             "index": "pypi",
             "version": "==3.2.0"
+        },
+        "blinker": {
+            "hashes": [
+                "sha256:471aee25f3992bd325afa3772f1063dbdbbca947a041b8b89466dc00d606f8b6"
+            ],
+            "version": "==1.4"
         },
         "cerberus": {
             "hashes": [
@@ -146,6 +152,14 @@
             ],
             "index": "pypi",
             "version": "==3.0.10"
+        },
+        "flask-debugtoolbar": {
+            "hashes": [
+                "sha256:0e9a80d4c599233c68376e81cc99976200b5ac5248cfb24f18935cc5b69ac5b3",
+                "sha256:3c4e79d354ede014e6657c545a536d4fb273cc89e3fd6b4835b02e346dd3aab4"
+            ],
+            "index": "pypi",
+            "version": "==0.11.0"
         },
         "flask-jwt-extended": {
             "hashes": [
@@ -271,6 +285,7 @@
         },
         "gunicorn": {
             "hashes": [
+                "sha256:9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e",
                 "sha256:e0a968b5ba15f8a328fdfd7ab1fcb5af4470c28aaf7e55df02a99bc13138e6e8"
             ],
             "index": "pypi",
@@ -426,11 +441,11 @@
         },
         "marshmallow-sqlalchemy": {
             "hashes": [
-                "sha256:b217c6327bcf291e843dc1c2c20f0915061d4ecc303f0c5be40f23206607f702",
-                "sha256:ee3ead3b83de6608c6850ff60515691b0dc556ca226680f8a82b9f785cdb71b1"
+                "sha256:40faf740ff7d95c83bf9178da9a8be33a9b28f9c76020dfa7e82d953acf2acdc",
+                "sha256:823ae5ce51cb42522f6185089fbe9551af86198f474b6c805e55292329ec904c"
             ],
             "index": "pypi",
-            "version": "==0.24.2"
+            "version": "==0.24.3"
         },
         "pdfkit": {
             "hashes": [

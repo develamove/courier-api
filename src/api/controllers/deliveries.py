@@ -1,5 +1,7 @@
-import os, sys, subprocess, platform
+import platform
 import pdfkit
+import os
+import subprocess
 from flask import Blueprint, request, send_from_directory, current_app, send_file, make_response, render_template
 from src.api.services import DeliveryService
 from src.utils import response_creator, get_request_data, protected
@@ -21,7 +23,7 @@ body = {
         "order_id": 123,
         "order_creation_date": "2020-01-01 14:14:52",
         "company_name": "Test Company",
-        "city": "Mumbai",
+        "city": "Test City",
         "state": "MH",
     }
 }
@@ -56,6 +58,22 @@ def get_delivery_info(delivery_id: int):
         a single delivery resource, error, http status code
     """
     return delivery_service.get_delivery_info(delivery_id)
+
+
+@deliveries.route('/<delivery_id>/events')
+@response_creator
+def get_delivery_events(delivery_id: any, **kwargs):
+    """Get all events occurred on a specific delivery/transaction
+
+    Args:
+        delivery_id (any): a unique ID of the delivery/transaction
+
+    Returns:
+        a single delivery resource, errors, http status code
+    """
+    data = get_request_data(request, **kwargs)
+
+    return delivery_service.get_delivery_events(delivery_id, data)
 
 
 @deliveries.route('clients/<client_id>')
@@ -119,6 +137,20 @@ def create_delivery(**kwargs):
     data = get_request_data(request, **kwargs)
 
     return delivery_service.create_delivery(data)
+
+
+@deliveries.route('<delivery_id>/events', methods=['POST'])
+# @protected('all')
+@response_creator
+def create_delivery_events(delivery_id, **kwargs):
+    """Create a delivery
+
+    Returns:
+        a delivery status, error, http status code
+    """
+    data = get_request_data(request, **kwargs)
+
+    return delivery_service.create_delivery_events(delivery_id, data)
 
 
 @deliveries.route('<delivery_id>', methods=['PUT'])

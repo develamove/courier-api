@@ -12,7 +12,8 @@ class CityModel(database.Model):
     is_pickup_available = Column(String(1))
     created_timestamp = Column(DateTime, nullable=False, server_default=func.current_timestamp())
 
-    def __init__(self, province_id, name, is_pickup_available):
+    def __init__(self, province_id, name, is_pickup_available, **kwargs):
+        super(CityModel, self).__init__(**kwargs)
         self.province_id = province_id
         self.is_pickup_available = is_pickup_available
         self.name = name
@@ -30,4 +31,4 @@ class CitySchema(marshmallow.SQLAlchemyAutoSchema):
     id = fields.Int(dump_only=True)
     name = fields.Str(missing='')
     is_pickup_available = fields.Str(missing='')
-    created_timestamp = fields.DateTime(dump_only=True)
+    created_timestamp = fields.DateTime(dump_only=True, format='%Y-%m-%d %H:%M:%S%z')

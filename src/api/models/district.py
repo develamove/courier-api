@@ -13,7 +13,8 @@ class DistrictModel(database.Model):
     is_pickup_available = Column(String(1))
     created_timestamp = Column(DateTime, nullable=False, server_default=func.current_timestamp())
 
-    def __init__(self, city_id, name, postal_code, is_pickup_available):
+    def __init__(self, city_id, name, postal_code, is_pickup_available, **kwargs):
+        super(DistrictModel, self).__init__(**kwargs)
         self.city_id = city_id
         self.name = name
         self.postal_code = postal_code
@@ -33,3 +34,4 @@ class DistrictSchema(marshmallow.SQLAlchemyAutoSchema):
     name = fields.Str(missing='')
     postal_code = fields.Str(missing='')
     is_pickup_available = fields.Str(missing='')
+    created_timestamp = fields.DateTime(dump_only=True, format='%Y-%m-%d %H:%M:%S%z')

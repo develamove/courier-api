@@ -1,13 +1,15 @@
 import datetime
-from src.api.repositories import DeliveryRepository, DeliveryStatusRepository, SenderRepository, RecipientRepository
+from src.api.repositories import DeliveryRepository, DeliveryStatusRepository, SenderRepository, RecipientRepository, \
+    EventRepository
 from src.api.services.validation_schema import create_delivery_schema, fetch_delivery_schema, \
-    fetch_delivery_status_schema, modify_delivery_schema
+    fetch_delivery_status_schema, modify_delivery_schema, create_event_schema
 from src.utils import create_tracking_id, filter_dict, format_cp_no, CustomValidator, ErrorManager, FAILURE, SUCCESS, \
     DELIVERY_CREATION_FAILED, DELIVERY_CREATION_SUCCESS, DELIVERY_UPDATE_FAILED, DELIVERY_UPDATE_SUCCESS
 
 
 class DeliveryService:
     delivery_repo = DeliveryRepository()
+    event_repo = EventRepository()
     status_repo = DeliveryStatusRepository()
     sender_repo = SenderRepository()
     recipient_repo = RecipientRepository()
@@ -79,6 +81,56 @@ class DeliveryService:
             return dict(deliveries=resources, total=deliveries.total, page=data.get('page', 1)), [], SUCCESS
 
         return dict(), validator.errors, FAILURE
+
+    def get_delivery_events(self, delivery_id: any, data: any):
+        """Get the events occurred on a specific delivery
+
+        Args:
+            delivery_id (any): a unique ID for the delivery
+            data (any): an object which holds the information of the request
+
+        Returns:
+            a multiple event resource, errors, and a HTTP status code
+        """
+        data['delivery_id'] = delivery_id
+        events = self.event_repo.get_by_attributes(data)
+        resources = self.status_repo.dump(events.items, True)
+
+        return dict(logs=resources, total=events.total), [], SUCCESS
+
+    def create_delivery_events(self, delivery_id: any, data: any):
+        """Create an events for a specific delivery
+
+        Args:
+            delivery_id (any): a unique ID for the delivery
+            data (any): an object which holds the information of the request
+
+        Returns:
+            a multiple event resource, errors, and a HTTP status code
+        """
+        delivery = self.delivery_repo.get_by_id(delivery_id)
+        resource = self.delivery_repo.dump(delivery)
+
+        if resource == {}:
+            return '', dict(delivery_id=['delivery not found']), SUCCESS
+
+        raw_events = data.get('events', [])
+        events = []
+        for event in raw_events:
+            raw = dict()
+            raw['delivery_id'] = delivery_id
+            raw['name'] = event.get('name')
+            raw['remarks'] = event.get('remarks', '')
+            validator = CustomValidator(create_event_schema, allow_unknown=True)
+            validator.validate(raw)
+
+            if validator.errors:
+                return '', validator.errors, FAILURE
+
+            events.append(raw)
+
+        self.event_repo.bulk_add(events)
+        return '', dict(), SUCCESS
 
     def get_delivery_logs(self, delivery_id: int, data: any):
         """Get a list of deliveries
