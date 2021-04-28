@@ -136,6 +136,9 @@ class MySQLRepository:
 
         return self.schema.dump(data)
 
+    def do_rollback(self):
+        database.session.rollback()
+
     @staticmethod
     def get_filters(allowed_filter_keys: List, data: any):
         filters = dict()
@@ -169,9 +172,9 @@ class MySQLRepository:
         page = MySQLRepository.str_to_int(data.get('page', 1), 1)
         page = 1 if page == 0 or page > 500 else page
 
-        # 100 as default
-        per_page = MySQLRepository.str_to_int(data.get('limit', 100), 100)
-        per_page = 100 if per_page > 1000 else per_page
+        # 50 as default
+        per_page = MySQLRepository.str_to_int(data.get('limit', 50), 50)
+        per_page = 50 if per_page > 1000 else per_page
 
         return dict(page=page, per_page=per_page)
 

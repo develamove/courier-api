@@ -10,8 +10,8 @@ class RecipientRepository(MySQLRepository):
         self.schema = RecipientSchema()
         self.schema_to_many = RecipientSchema(many=True)
         self._attr_id = 'id'
-        self.field_keys = ['full_name', 'cellphone_no', 'email', 'province', 'city', 'district', 'street', 'landmarks',
-                           'set_timestamp', 'postal_code']
+        self.creatable_fields = ['delivery_id', 'full_name', 'cellphone_no', 'email', 'province', 'city', 'district',
+                                 'street', 'landmarks', 'set_timestamp', 'postal_code']
         self.updatable_fields = ['full_name', 'cellphone_no', 'email', 'province', 'city', 'district', 'street',
                                  'landmarks', 'set_timestamp', 'postal_code']
         self.allowed_sort_keys = []

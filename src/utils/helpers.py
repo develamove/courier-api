@@ -10,7 +10,7 @@ def create_tracking_id():
     Returns:
         a tracking number
     """
-    return get_random_str(4).upper() + get_random_digits(8)
+    return get_random_str(4).upper() + '-' + get_random_digits(8)
 
 
 def get_random_str(str_len: int):
@@ -28,6 +28,9 @@ def get_random_digits(num_len: int):
 
     for counter in range(num_len):
         index = math.floor(random.random() * 10)
+        # Custom divider for the generated random string
+        if math.ceil(num_len/2) == counter:
+            random_str += '-'
         random_str += str(digits[index])
 
     return random_str

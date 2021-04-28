@@ -162,55 +162,35 @@ modify_client_schema = {
 fetch_delivery_schema = base_fetch_schema
 fetch_delivery_status_schema = base_fetch_schema
 create_delivery_schema = {
-        'client_id': {
-            'type': 'string',
-            'empty': False,
-            'required': True
-        },
         'receipt_id': {
             'type': 'string',
             'empty': False,
-            'maxlength': 30
-        },
-        'is_cod': {
-            'type': 'string',
-            'required': True,
-            'empty': False,
-            'allowed': ['F', 'T']
-        },
-        'is_provincial': {
-            'type': 'string',
-            'required': True,
-            'empty': False,
-            'allowed': ['F', 'T']
-        },
-        'item_name': {
-            'type': 'string',
-            'empty': False,
-            'required': True,
-            'maxlength': 50
+            'maxlength': 15
         },
         'item_type': {
             'type': 'string',
             'empty': False,
             'required': True,
-            'allowed': ['S-M', 'S', 'M', 'L', 'XL', 'B']
+            'allowed': ['S', 'M', 'L', 'B', 'OWN']
         },
-        'item_amount': {
+        'item_description': {
+            'type': 'string',
+            'empty': False,
+            'required': True,
+            'maxlength': 50
+        },
+        'item_value': {
             'type': 'integer',
             'required': True,
             'empty': False,
+            'min': 0,
+            'max': 1000000
         },
-        'item_weight': {
-            'type': 'integer',
-            'empty': False,
-            'min': 1,
-            'max': 100
-        },
-        'total_amount': {
-            'type': 'integer',
+        'payment_method': {
+            'type': 'string',
             'required': True,
             'empty': False,
+            'allowed': ['cod', 'non-cod']
         },
         'sender': {
             'type': 'dict',
