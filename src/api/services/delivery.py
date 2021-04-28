@@ -22,6 +22,8 @@ class DeliveryService:
         'remarks': 'For pickup'
     }
 
+    EVENT_HIERARCHY = ['for_pickup', 'picked_up', 'in_transit', 'failed_delivery', 'delivered', 'cancelled']
+
     def get_delivery(self, filter_id: any, data: any):
         """Get a single delivery using a filter_id can be either (tracking_id or receipt_id (waybill))
 
@@ -32,7 +34,7 @@ class DeliveryService:
         Returns:
             a single delivery resource, errors, and a HTTP status code
         """
-        filter_keys = ['tracking_id', 'receipt_id']
+        filter_keys = ['tracking_id', 'receipt_id', 'id']
         filter_key = data.get('filter_key', 'tracking_id')
         if filter_key not in filter_keys:
             filter_key = 'tracking_id'
@@ -122,21 +124,31 @@ class DeliveryService:
 
         raw_events = data.get('events', [])
         events = []
+        status_name = 'for_pickup'
+        status_index = 0
         for event in raw_events:
             raw = dict()
+            name = event.get('name')
             raw['delivery_id'] = delivery_id
-            raw['name'] = event.get('name')
+            raw['name'] = name
             raw['remarks'] = event.get('remarks', '')
             validator = CustomValidator(create_event_schema, allow_unknown=True)
             validator.validate(raw)
 
             if validator.errors:
                 return '', validator.errors, FAILURE
-
+            if status_index < self.EVENT_HIERARCHY.index(name):
+                status_name = name
+                status_index = self.EVENT_HIERARCHY.index(name)
             events.append(raw)
+        event_resource = self.event_repo.bulk_add(events)
+        if not event_resource:
+            return '', dict(events=['can\'t add event to the given delivery']), SUCCESS
 
-        self.event_repo.bulk_add(events)
-        return '', dict(), SUCCESS
+        delivery_resource = self.delivery_repo.update(delivery_id, {'status': status_name})
+        if not delivery_resource:
+            return '', dict(events=['failed to update the delivery']), SUCCESS
+        return 'success to update the delivery', dict(), SUCCESS
 
     def get_delivery_logs(self, delivery_id: int, data: any):
         """Get a list of deliveries
@@ -229,13 +241,16 @@ class DeliveryService:
             6. Add the recipient information
             8. Create event
 
+        TODO
+          - check the location using id's
+
         Args:
             data: an object which holds the information of the request
 
         Returns:
             a resource, errors, and the status
         """
-        # TODO: check the location using id's
+
         validator = CustomValidator(create_delivery_schema, allow_unknown=True)
         validator.validate(data)
 
@@ -310,15 +325,13 @@ class DeliveryService:
         cached_data = data
         cached_data['id'] = delivery_id
 
-        # Keys for admin ['is_for_pick_up', 'is_already_pick_up', 'is_in_transit', 'is_delivered',
-        # 'is_successful', 'is_remitted']
-
         if not validator.errors:
             # if data['identity_role'] == 'client' and str(data['client_id']) != str(data['identity_id']):
             #     return DELIVERY_CREATION_FAILED, dict(client=['invalid client id']), FAILURE
             # if data['identity_role'] == 'admin':
             #     data['client_id'] = 0
 
+            data['client_id'] = 10000
             is_delivery_exist = self.delivery_repo.get_by_attributes_first(['id'], cached_data)
             if not is_delivery_exist:
                 errors = ErrorManager.create_error('delivery', 'delivery not exist')
@@ -326,39 +339,40 @@ class DeliveryService:
 
             filtered_data = filter_dict(self.delivery_repo.updatable_fields, data)
             if len(filtered_data) > 0:
-                filtered_data['set_timestamp'] = datetime.datetime.now()
+                if data.get('receipt_id', None) is not None:
+                    is_receipt_id_exist = self.delivery_repo.get_by_attributes_first(['receipt_id'], data)
+                    if is_receipt_id_exist:
+                        return DELIVERY_CREATION_FAILED, dict(receipt_id=['receipt_id is already existing']), FAILURE
+
+                filtered_data['updated_timestamp'] = datetime.datetime.now()
                 delivery = self.delivery_repo.update(delivery_id, filtered_data)
 
                 if not delivery:
-                    errors = ErrorManager.create_error('delivery', 'update failed')
+                    errors = ErrorManager.create_error('delivery', 'failed to update the delivery')
                     return DELIVERY_UPDATE_FAILED, errors, SUCCESS
 
-                if self._is_status_key_exist(filtered_data):
-                    message, errors, status = self.create_delivery_status(delivery_id, data)
-                    if status == FAILURE:
-                        return message, errors, status
-
-            if 'sender' in data:
-                data['sender']['set_timestamp'] = datetime.datetime.now()
-                sender = self.sender_repo.get_by_attributes_first(['delivery_id'], {'delivery_id': delivery_id})
-                if not sender:
-                    errors = ErrorManager.create_error('delivery', 'sender not exist')
-                    return DELIVERY_UPDATE_FAILED, errors, FAILURE
-                sender_status = self.sender_repo.update(sender.id, data['sender'])
-
-                if not sender_status:
-                    return DELIVERY_UPDATE_FAILED, '', FAILURE
-
-            if 'recipient' in data:
-                data['recipient']['set_timestamp'] = datetime.datetime.now()
-                recipient = self.recipient_repo.get_by_attributes_first(['delivery_id'], {'delivery_id': delivery_id})
-                if not recipient:
-                    errors = ErrorManager.create_error('delivery', 'recipient not exist')
-                    return DELIVERY_UPDATE_FAILED, errors, SUCCESS
-                recipient_status = self.recipient_repo.update(recipient.id, data['recipient'])
-
-                if not recipient_status:
-                    return DELIVERY_UPDATE_FAILED, '', FAILURE
+            # Disable to update the sender and recipient of the delivery
+            # if 'sender' in data:
+            #     data['sender']['set_timestamp'] = datetime.datetime.now()
+            #     sender = self.sender_repo.get_by_attributes_first(['delivery_id'], {'delivery_id': delivery_id})
+            #     if not sender:
+            #         errors = ErrorManager.create_error('delivery', 'sender not exist')
+            #         return DELIVERY_UPDATE_FAILED, errors, FAILURE
+            #     sender_status = self.sender_repo.update(sender.id, data['sender'])
+            #
+            #     if not sender_status:
+            #         return DELIVERY_UPDATE_FAILED, '', FAILURE
+            #
+            # if 'recipient' in data:
+            #     data['recipient']['set_timestamp'] = datetime.datetime.now()
+            #     recipient = self.recipient_repo.get_by_attributes_first(['delivery_id'], {'delivery_id': delivery_id})
+            #     if not recipient:
+            #         errors = ErrorManager.create_error('delivery', 'recipient not exist')
+            #         return DELIVERY_UPDATE_FAILED, errors, SUCCESS
+            #     recipient_status = self.recipient_repo.update(recipient.id, data['recipient'])
+            #
+            #     if not recipient_status:
+            #         return DELIVERY_UPDATE_FAILED, '', FAILURE
 
             return DELIVERY_UPDATE_SUCCESS, '', SUCCESS
         return DELIVERY_UPDATE_FAILED, validator.errors, FAILURE

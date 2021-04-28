@@ -196,6 +196,11 @@ create_delivery_schema = {
             'type': 'dict',
             'required': True,
             'schema': {
+                'province_id': {
+                    'type': 'integer',
+                    'required': True,
+                    'empty': False
+                },
                 'full_name': {
                     'type': 'string',
                     'required': True,
@@ -250,6 +255,11 @@ create_delivery_schema = {
             'type': 'dict',
             'required': True,
             'schema': {
+                'province_id': {
+                    'type': 'integer',
+                    'required': True,
+                    'empty': False
+                },
                 'full_name': {
                     'type': 'string',
                     'required': True,
@@ -301,10 +311,6 @@ create_delivery_schema = {
         }
     }
 modify_delivery_schema = {
-        'client_id': {
-            'required': True,
-            'empty': False,
-        },
         'is_cod': {
             'type': 'string',
             'empty': False,

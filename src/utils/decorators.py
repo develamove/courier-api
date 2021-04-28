@@ -2,7 +2,7 @@ from functools import wraps
 from flask import jsonify
 from flask_jwt_extended import get_jwt
 from flask_jwt_extended import verify_jwt_in_request
-from src.utils import FAILURE, ERROR
+from src.utils import FAILURE, SERVER_ERROR
 
 
 def response_creator(func):
@@ -13,7 +13,7 @@ def response_creator(func):
         status_code = 200
         if status_key == FAILURE:
             status_key = 422
-        if status_key == ERROR:
+        if status_key == SERVER_ERROR:
             status_code = 500
 
         response = {

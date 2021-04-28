@@ -2,7 +2,8 @@ import platform
 import pdfkit
 import os
 import subprocess
-from flask import Blueprint, request, send_from_directory, current_app, send_file, make_response, render_template
+from datetime import datetime
+from flask import Blueprint, request, make_response, render_template
 from src.api.services import DeliveryService
 from src.utils import response_creator, get_request_data, protected
 
@@ -18,14 +19,54 @@ else:
                                        stdout=subprocess.PIPE).communicate()[0].strip()
     pdfkit_config = pdfkit.configuration(wkhtmltopdf=WKHTMLTOPDF_CMD)
 
-body = {
-    "data": {
-        "order_id": 123,
-        "order_creation_date": "2020-01-01 14:14:52",
-        "company_name": "Test Company",
-        "city": "Test City",
-        "state": "MH",
-    }
+delivery_template = {
+    "cancellation_reason": "cancellation reason",
+    "client_id": 10000,
+    "created_timestamp": "2021-04-28 11:53:38",
+    "failure_reason": "failure reason",
+    "id": 45,
+    "insurance_fee": 0,
+    "item_description": "This is a sample package name",
+    "item_type": "M",
+    "item_value": 100,
+    "payment_method": "cod",
+    "receipt_id": "123123",
+    "recipient": {
+        "cellphone_no": "+639096309187",
+        "city": "Pasig City",
+        "created_timestamp": "2021-04-28 11:53:38",
+        "delivery_id": 45,
+        "district": "Rosario",
+        "email": "",
+        "full_name": "Sender Full Name",
+        "id": 43,
+        "landmarks": "Near SM Ortigas",
+        "postal_code": "0000",
+        "province": "Metro Manila",
+        "street": "Gumamela st",
+        "updated_timestamp": 'null'
+    },
+    "remarks": "sample remarks",
+    "sender": {
+        "cellphone_no": "+639096309187",
+        "city": "Pasig City",
+        "created_timestamp": "2021-04-28 11:53:38",
+        "delivery_id": 45,
+        "district": "Rosario",
+        "email": "",
+        "full_name": "Sender Full Name",
+        "id": 43,
+        "landmarks": "Near SM Ortigas",
+        "postal_code": "0000",
+        "province": "Metro Manila",
+        "street": "Gumamela st",
+        "updated_timestamp": 'null'
+    },
+    "shipping_fee": 230,
+    "status": "in_transit",
+    "total": 230,
+    "tracking_number": "HCAE-6776-4885",
+    "updated_timestamp": "2021-04-28 23:09:08"
 }
 
 
@@ -170,14 +211,42 @@ def modify_delivery(delivery_id, **kwargs):
     return delivery_service.modify_delivery(delivery_id, data)
 
 
+def convert_item_type(item_key: str):
+    item_types = {
+        'S': 'Small',
+        'M': 'Medium',
+        'L': 'Large',
+        'B': 'Box',
+        'OWN': 'Own Packaging'
+    }
+
+    return item_types[item_key]
+
+
 @deliveries.route('<delivery_id>/receipts')
 def download_receipt(delivery_id, **kwargs):
-    html = render_template('receipt.html', json_data=body['data'])
-    pdf = pdfkit.from_string(html, False, configuration=pdfkit_config)
     data = get_request_data(request, **kwargs)
-    delivery_info = delivery_service.get_delivery(delivery_id, data)
+    data['filter_key'] = 'id'
+    delivery_info, _, _ = delivery_service.get_delivery(delivery_id, data)
+    if len(delivery_info['delivery']) == 0:
+        return dict(error={'errors': 'delivery not found'}), 200
+
+    delivery_raw = delivery_template.copy()
+    delivery_raw.update(delivery_info)
+
+    # Convert the necessary data
+    created_timestamp = datetime.strptime(delivery_raw['created_timestamp'], '%Y-%m-%d %H:%M:%S')
+    delivery_raw['created_timestamp'] = created_timestamp.strftime('%B %m, %Y')
+    item_type = convert_item_type(delivery_raw['item_type'])
+    delivery_raw['item_type'] = item_type
+    payment_method = 'Cash on Delivery' if delivery_raw['payment_method'] == 'cod' else 'non Cash on Delivery'
+    delivery_raw['payment_method'] = payment_method
+
+    html = render_template('receipt.html', json_data=delivery_raw)
+    pdf = pdfkit.from_string(html, False, configuration=pdfkit_config)
     response = make_response(pdf)
-    content_disposition = 'attachment; filename=receipt-' + delivery_id + '.pdf'
+    tracking_number = delivery_raw.get('tracking_number', 'receipt')
+    content_disposition = 'attachment; filename=trasanction-' + tracking_number + '.pdf'
     response.headers['Content-Type'] = 'application/pdf'
     response.headers['Content-Disposition'] = content_disposition
 
