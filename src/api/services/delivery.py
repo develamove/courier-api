@@ -22,6 +22,8 @@ class DeliveryService:
         'remarks': 'For pickup'
     }
 
+
+
     EVENT_HIERARCHY = ['for_pickup', 'picked_up', 'in_transit', 'failed_delivery', 'delivered', 'cancelled']
 
     def get_delivery(self, filter_id: any, data: any):
