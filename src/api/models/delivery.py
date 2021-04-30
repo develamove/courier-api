@@ -21,7 +21,9 @@ class DeliveryModel(database.Model):
     insurance_fee = Column(Integer, nullable=False)
     payment_method = Column(String(10), nullable=False)
     failure_reason = Column(Text(200))
+    service_fees_payor = Column(String(30), nullable=False)
     cancellation_reason = Column(Text(200))
+    transaction_total = Column(Integer)
     total = Column(Integer)
     remarks = Column(Text(200))
     status = Column(String(20))
@@ -32,16 +34,19 @@ class DeliveryModel(database.Model):
     events = relationship('EventModel', backref='t_delivery', lazy=True)
 
     def __init__(self, client_id, tracking_number, item_description, item_type, item_value, shipping_fee,
-                 payment_method, total, status, receipt_id='', insurance_fee=0, **kwargs):
+                 payment_method, total, status, transaction_total, service_fees_payor, receipt_id='',
+                 insurance_fee=0, **kwargs):
         super(DeliveryModel, self).__init__(**kwargs)
         self.client_id = client_id
         self.tracking_number = tracking_number
         self.receipt_id = receipt_id
         self.item_description = item_description
+        self.service_fees_payor = service_fees_payor
         self.item_type = item_type
         self.item_value = item_value
         self.shipping_fee = shipping_fee
         self.payment_method = payment_method
+        self.transaction_total = transaction_total
         self.total = total
         self.status = status
         self.insurance_fee = insurance_fee
@@ -64,9 +69,11 @@ class DeliverySchema(marshmallow.SQLAlchemyAutoSchema):
     item_value = fields.Int(missing=0)
     shipping_fee = fields.Int(dump_only=True)
     insurance_fee = fields.Int(dump_only=True)
+    transaction_total = fields.Int(missing=0)
     total = fields.Int(missing=0)
     payment_method = fields.Str(missing='')
     failure_reason = fields.Str(missing='')
+    service_fees_payor = fields.Str(missing='')
     cancellation_reason = fields.Str(missing='')
     status = fields.Str(missing='')
     remarks = fields.Str(missing='')

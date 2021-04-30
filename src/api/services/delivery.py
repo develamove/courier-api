@@ -5,6 +5,7 @@ from src.api.services.validation_schema import create_delivery_schema, fetch_del
     fetch_delivery_status_schema, modify_delivery_schema, create_event_schema
 from src.utils import create_tracking_id, filter_dict, format_cp_no, CustomValidator, ErrorManager
 from src.utils.constants import *
+from src.utils.provinces import PROVINCES
 
 
 class DeliveryService:
@@ -22,9 +23,8 @@ class DeliveryService:
         'remarks': 'For pickup'
     }
 
-
-
-    EVENT_HIERARCHY = ['for_pickup', 'picked_up', 'in_transit', 'failed_delivery', 'delivered', 'cancelled']
+    EVENT_HIERARCHY = ['for_pickup', 'picked_up', 'in_transit', 'failed_delivery', 'delivered', 'cancelled',
+                       'is_remitted']
 
     def get_delivery(self, filter_id: any, data: any):
         """Get a single delivery using a filter_id can be either (tracking_id or receipt_id (waybill))
@@ -181,37 +181,19 @@ class DeliveryService:
 
         return dict(), validator.errors, FAILURE
 
-    @staticmethod
-    def get_shipping_fee(sender_province_id, recipient_province_id, item_type):
-        sender_code = 'lvm'
-        recipient_code = 'lvm'
-
-        if sender_province_id in MANILA_PROVINCE_ID:
-            sender_code = 'm'
-        elif sender_province_id in GREATER_MANILA_PROVINCE_ID:
-            sender_code = 'gm'
-
-        if recipient_province_id in MANILA_PROVINCE_ID:
-            recipient_code = 'm'
-        elif recipient_province_id in GREATER_MANILA_PROVINCE_ID:
-            recipient_code = 'gm'
-
-        location_fee_code = sender_code + '_to_' + recipient_code
-
-        return SHIPPING_FEES[item_type.upper()][location_fee_code]
-
     def _get_delivery_computations(self, data):
-        sender_province_id = data['sender'].get('province_id')
         recipient_province_id = data['recipient'].get('province_id')
+        area = PROVINCES[recipient_province_id]['area']
+        item_type = data.get('item_type')
+        item_value = data.get('item_value')
 
-        shipping_fee = DeliveryService.get_shipping_fee(sender_province_id, recipient_province_id, data.get('item_type'))
-        if shipping_fee['fee'] == 0:
-            return None
+        shipping_fee = SHIPPING_FEES[item_type][area]
 
         return {
             'shipping_fee': shipping_fee['fee'],
-            'total': shipping_fee['fee'],
-            'insurance_fee': 0
+            'transaction_total': shipping_fee['fee'],
+            'insurance_fee': 0,
+            'total': shipping_fee['fee'] + item_value
         }
 
     def create_delivery(self, data):

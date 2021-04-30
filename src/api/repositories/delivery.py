@@ -12,7 +12,7 @@ class DeliveryRepository(MySQLRepository):
         self._attr_id = 'id'
         self.creatable_fields = ['item_type', 'item_type', 'item_description', 'item_value', 'insurance_fee',
                                  'shipping_fee', 'total', 'payment_method', 'status', 'tracking_number', 'receipt_id',
-                                 'client_id', 'status']
+                                 'client_id', 'status', 'transaction_total', 'service_fees_payor']
         self.updatable_fields = ['receipt_id', 'cancellation_reason', 'failure_reason', 'status', 'remarks',
                                  'updated_timestamp']
         self.allowed_sort_keys = []

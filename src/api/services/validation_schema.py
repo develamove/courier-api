@@ -171,7 +171,7 @@ create_delivery_schema = {
             'type': 'string',
             'empty': False,
             'required': True,
-            'allowed': ['S', 'M', 'L', 'B', 'OWN']
+            'allowed': ['S', 'M', 'L', 'B']
         },
         'item_description': {
             'type': 'string',
@@ -191,6 +191,12 @@ create_delivery_schema = {
             'required': True,
             'empty': False,
             'allowed': ['cod', 'non-cod']
+        },
+        'service_fees_payor': {
+            'type': 'string',
+            'required': True,
+            'empty': False,
+            'allowed': ['sender', 'recipient']
         },
         'sender': {
             'type': 'dict',
@@ -329,7 +335,7 @@ modify_delivery_schema = {
         'item_type': {
             'type': 'string',
             'empty': False,
-            'allowed': ['S-M', 'S', 'M', 'L', 'XL', 'B']
+            'allowed': ['S', 'M', 'L', 'XL', 'B']
         },
         'item_amount': {
             'type': 'integer',
@@ -444,7 +450,7 @@ create_event_schema = {
         'type': 'string',
         'empty': False,
         'required': True,
-        'allowed': ['for_pickup', 'picked_up', 'in_transit', 'failed_delivery', 'delivered', 'cancelled']
+        'allowed': ['for_pickup', 'picked_up', 'in_transit', 'failed_delivery', 'delivered', 'cancelled', 'is_remitted']
     },
     'remarks': {
         'type': 'string',

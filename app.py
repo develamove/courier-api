@@ -27,7 +27,7 @@ def create_app():
 
     with application.app_context():
         # Add error handlers
-        application.register_error_handler(OperationalError, handle_db_error)
+        # application.register_error_handler(OperationalError, handle_db_error)
 
         # Initialize globals/extensions in app context
         # import routes here

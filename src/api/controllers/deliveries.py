@@ -19,56 +19,6 @@ else:
                                        stdout=subprocess.PIPE).communicate()[0].strip()
     pdfkit_config = pdfkit.configuration(wkhtmltopdf=WKHTMLTOPDF_CMD)
 
-delivery_template = {
-    "cancellation_reason": "cancellation reason",
-    "client_id": 10000,
-    "created_timestamp": "2021-04-28 11:53:38",
-    "failure_reason": "failure reason",
-    "id": 45,
-    "insurance_fee": 0,
-    "item_description": "This is a sample package name",
-    "item_type": "M",
-    "item_value": 100,
-    "payment_method": "cod",
-    "receipt_id": "123123",
-    "recipient": {
-        "cellphone_no": "+639096309187",
-        "city": "Pasig City",
-        "created_timestamp": "2021-04-28 11:53:38",
-        "delivery_id": 45,
-        "district": "Rosario",
-        "email": "",
-        "full_name": "Sender Full Name",
-        "id": 43,
-        "landmarks": "Near SM Ortigas",
-        "postal_code": "0000",
-        "province": "Metro Manila",
-        "street": "Gumamela st",
-        "updated_timestamp": 'null'
-    },
-    "remarks": "sample remarks",
-    "sender": {
-        "cellphone_no": "+639096309187",
-        "city": "Pasig City",
-        "created_timestamp": "2021-04-28 11:53:38",
-        "delivery_id": 45,
-        "district": "Rosario",
-        "email": "",
-        "full_name": "Sender Full Name",
-        "id": 43,
-        "landmarks": "Near SM Ortigas",
-        "postal_code": "0000",
-        "province": "Metro Manila",
-        "street": "Gumamela st",
-        "updated_timestamp": 'null'
-    },
-    "shipping_fee": 230,
-    "status": "in_transit",
-    "total": 230,
-    "tracking_number": "HCAE-6776-4885",
-    "updated_timestamp": "2021-04-28 23:09:08"
-}
-
 
 @deliveries.route('<filter_id>')
 @response_creator
@@ -213,11 +163,10 @@ def modify_delivery(delivery_id, **kwargs):
 
 def convert_item_type(item_key: str):
     item_types = {
-        'S': 'Small',
-        'M': 'Medium',
-        'L': 'Large',
-        'B': 'Box',
-        'OWN': 'Own Packaging'
+        'S': 'Small Pouch',
+        'M': 'Medium Pouch',
+        'L': 'Large Pouch',
+        'B': 'Box'
     }
 
     return item_types[item_key]
@@ -231,22 +180,23 @@ def download_receipt(delivery_id, **kwargs):
     if len(delivery_info['delivery']) == 0:
         return dict(error={'errors': 'delivery not found'}), 200
 
-    delivery_raw = delivery_template.copy()
-    delivery_raw.update(delivery_info)
+    delivery_info = delivery_info['delivery']
 
     # Convert the necessary data
-    created_timestamp = datetime.strptime(delivery_raw['created_timestamp'], '%Y-%m-%d %H:%M:%S')
-    delivery_raw['created_timestamp'] = created_timestamp.strftime('%B %m, %Y')
-    item_type = convert_item_type(delivery_raw['item_type'])
-    delivery_raw['item_type'] = item_type
-    payment_method = 'Cash on Delivery' if delivery_raw['payment_method'] == 'cod' else 'non Cash on Delivery'
-    delivery_raw['payment_method'] = payment_method
+    created_timestamp = datetime.strptime(delivery_info['created_timestamp'], '%Y-%m-%d %H:%M:%S')
+    delivery_info['created_timestamp'] = created_timestamp.strftime('%B %m, %Y')
+    item_type = convert_item_type(delivery_info['item_type'])
+    delivery_info['item_type'] = item_type
+    payment_method = 'Cash on Delivery' if delivery_info['payment_method'] == 'cod' else 'Non Cash on Delivery'
+    delivery_info['payment_method'] = payment_method
+    payor = 'Consignee' if delivery_info['service_fees_payor'] == 'recipient' else 'Shipper'
+    delivery_info['service_fees_payor'] = payor
 
-    html = render_template('receipt.html', json_data=delivery_raw)
+    html = render_template('receipt.html', json_data=delivery_info)
     pdf = pdfkit.from_string(html, False, configuration=pdfkit_config)
     response = make_response(pdf)
-    tracking_number = delivery_raw.get('tracking_number', 'receipt')
-    content_disposition = 'attachment; filename=trasanction-' + tracking_number + '.pdf'
+    tracking_number = delivery_info.get('tracking_number', 'receipt')
+    content_disposition = 'attachment; filename=transaction-' + tracking_number + '.pdf'
     response.headers['Content-Type'] = 'application/pdf'
     response.headers['Content-Disposition'] = content_disposition
 

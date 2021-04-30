@@ -133,7 +133,7 @@
 						<b>Shipper</b><br />
 						{{json_data.sender.full_name}}<br />
 						{{json_data.sender.province}}, {{json_data.sender.city}}<br />
-						{{json_data.sender.district}}, {{json_data.sender.street}} {{json_data.sender.postal_code}}<br />
+						{{json_data.sender.district}}, {{json_data.sender.street}}, {{json_data.sender.postal_code}},<br />
 						{{json_data.sender.landmarks}}<br />
 						{{json_data.sender.cellphone_no}}
 					</td>
@@ -142,14 +142,14 @@
 						<b>Consignee</b><br />
 						{{json_data.recipient.full_name}}<br />
 						{{json_data.recipient.province}}, {{json_data.recipient.city}}<br />
-						{{json_data.recipient.district}}, {{json_data.recipient.street}} {{json_data.recipient.postal_code}},<br />
+						{{json_data.recipient.district}}, {{json_data.recipient.street}}, {{json_data.recipient.postal_code}},<br />
 						{{json_data.recipient.landmarks}}<br />
 						{{json_data.recipient.cellphone_no}}
 					</td>
 				</tr>
 
 				<tr class="heading">
-					<td>Item Details</td>
+					<td>Package</td>
 					<td></td>
 				</tr>
 				<tr class="item">
@@ -167,14 +167,23 @@
 					<td></td>
 				</tr>
 				<tr class="heading">
-					<td>Payment Method</td>
+					<td>Payment</td>
 					<td></td>
 				</tr>
-
-				<tr class="details">
+				<tr class="item">
+					<td>Method</td>
 					<td>{{json_data.payment_method}}</td>
 				</tr>
-
+				<tr class="item">
+					<td>Service fee shouldered by</td>
+					<td>{{json_data.service_fees_payor}}</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
 				<tr class="heading">
 					<td>Transaction</td>
 					<td>Amount</td>
@@ -190,7 +199,7 @@
 				</tr>
 				<tr class="total">
 					<td></td>
-					<td>Total: &#8369;{{json_data.total}}</td>
+					<td>Total: &#8369;{{json_data.transaction_total}}</td>
 				</tr>
 				<tr>
 					<td></td>
