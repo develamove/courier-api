@@ -18,4 +18,4 @@ class DeliveryRepository(MySQLRepository):
         self.allowed_sort_keys = []
         self.default_sort_key = 'created_timestamp'
         self.allowed_filter_keys = ['receipt_id', 'cancellation_reason', 'failure_reason', 'status', 'remarks',
-                                    'updated_timestamp']
+                                    'updated_timestamp', 'client_id', 'tracking_number']

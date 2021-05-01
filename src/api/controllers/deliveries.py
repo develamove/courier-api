@@ -23,7 +23,7 @@ else:
 @deliveries.route('<filter_id>')
 @response_creator
 def get_delivery(filter_id: any, **kwargs):
-    """Get a single delivery using a filter_id can be either (tracking_id or receipt_id (waybill)). To enable search
+    """Get a single delivery using a filter_id can be either (tracking_number or receipt_id (waybill)). To enable search
     using receipt_id assign a query parameter filter_key with a value receipt_id.
 
     Args:
@@ -35,20 +35,6 @@ def get_delivery(filter_id: any, **kwargs):
     data = get_request_data(request, **kwargs)
 
     return delivery_service.get_delivery(filter_id, data)
-
-
-@deliveries.route('<delivery_id>/info')
-@response_creator
-def get_delivery_info(delivery_id: int):
-    """Get the sender and recipient information
-
-    Args:
-        delivery_id (int): unique ID of the delivery
-
-    Returns:
-        a single delivery resource, error, http status code
-    """
-    return delivery_service.get_delivery_info(delivery_id)
 
 
 @deliveries.route('/<delivery_id>/events')
@@ -97,23 +83,6 @@ def get_deliveries(**kwargs):
     data = get_request_data(request, **kwargs)
 
     return delivery_service.get_deliveries(data)
-
-
-@deliveries.route('<delivery_id>/logs')
-# @protected('all')
-@response_creator
-def get_delivery_logs(delivery_id, **kwargs):
-    """Get a list of deliveries created by a specific client
-
-    Args:
-        delivery_id (int): unique ID of the delivery
-
-    Returns:
-        a multiple delivery logs resources, error, http status code
-    """
-    data = get_request_data(request, **kwargs)
-
-    return delivery_service.get_delivery_logs(delivery_id, data)
 
 
 @deliveries.route('', methods=['POST'])

@@ -9,7 +9,7 @@ class EventModel(database.Model):
     id = Column(Integer, primary_key=True)
     delivery_id = database.Column(Integer, ForeignKey('t_delivery.id'))
     name = Column(String(50))
-    remarks = Column(Text(100))
+    remarks = Column(Text(200))
     updated_timestamp = Column(DateTime, nullable=True)
     created_timestamp = Column(DateTime, nullable=False, server_default=func.current_timestamp())
 
