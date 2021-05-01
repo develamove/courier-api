@@ -36,7 +36,7 @@ class LocationService(BaseService):
 
         if validator.errors:
             return [], validator.errors, ERROR
-
+        data['limit'] = 100
         provinces = self.province_repo.get_by_attributes(data)
         resources = self.province_repo.dump(provinces.items, True)
 
@@ -86,6 +86,7 @@ class LocationService(BaseService):
         if validator.errors:
             return [], validator.errors, ERROR
 
+        data['limit'] = 100
         cities = self.city_repo.get_by_attributes(data)
         resources = self.city_repo.dump(cities.items, True)
 
@@ -134,6 +135,7 @@ class LocationService(BaseService):
         if validator.errors:
             return [], validator.errors, ERROR
 
+        data['limit'] = 200
         districts = self.district_repo.get_by_attributes(data)
         resources = self.district_repo.dump(districts.items, True)
 

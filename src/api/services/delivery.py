@@ -138,7 +138,7 @@ class DeliveryService:
             #     data['client_id'] = 0
 
             # Static client id
-            data['client_id'] = 10000
+            data['client_id'] = data.get('client_id', 1111)
             data['tracking_number'] = create_tracking_id()
 
             if data.get('receipt_id', None) is not None:
