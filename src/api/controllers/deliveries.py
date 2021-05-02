@@ -160,6 +160,8 @@ def download_receipt(delivery_id, **kwargs):
     delivery_info['payment_method'] = payment_method
     payor = 'Consignee' if delivery_info['service_fees_payor'] == 'recipient' else 'Shipper'
     delivery_info['service_fees_payor'] = payor
+    receipt_id = delivery_info['receipt_id'] if len(delivery_info['receipt_id']) > 0 else 'N/A'
+    delivery_info['receipt_id'] = receipt_id
 
     html = render_template('receipt.html', json_data=delivery_info)
     pdf = pdfkit.from_string(html, False, configuration=pdfkit_config)
