@@ -156,7 +156,7 @@ def download_receipt(delivery_id, **kwargs):
     delivery_info['created_timestamp'] = created_timestamp.strftime('%B %m, %Y')
     item_type = convert_item_type(delivery_info['item_type'])
     delivery_info['item_type'] = item_type
-    payment_method = 'Cash on Delivery' if delivery_info['payment_method'] == 'cod' else 'Non Cash on Delivery'
+    payment_method = 'Cash on Delivery' if delivery_info['payment_method'] == 'cod' else 'Regular Transaction'
     delivery_info['payment_method'] = payment_method
     payor = 'Consignee' if delivery_info['service_fees_payor'] == 'recipient' else 'Shipper'
     delivery_info['service_fees_payor'] = payor

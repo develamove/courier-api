@@ -190,7 +190,7 @@ create_delivery_schema = {
             'type': 'string',
             'required': True,
             'empty': False,
-            'allowed': ['cod', 'non-cod']
+            'allowed': ['cod', 'regular']
         },
         'service_fees_payor': {
             'type': 'string',
