@@ -1,3 +1,4 @@
+from datetime import timedelta
 from flask import Flask
 from sqlalchemy.exc import OperationalError
 from src.configs import AppConfig, DatabaseConfig, ServerConfig
@@ -18,6 +19,7 @@ def create_app():
     application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     application.config['SQLALCHEMY_POOL_RECYCLE'] = 90
     application.config['JWT_SECRET_KEY'] = app_config.JWT_SECRET
+    application.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
 
     cors.init_app(application, resources={r'/*': {'origins': '*'}})
     database.init_app(application)
@@ -31,8 +33,9 @@ def create_app():
 
         # Initialize globals/extensions in app context
         # import routes here
-        from src.api.controllers import staffs, clients, deliveries, locations
+        from src.api.controllers import auth, staffs, clients, deliveries, locations
 
+        application.register_blueprint(auth)
         application.register_blueprint(staffs)
         application.register_blueprint(clients)
         application.register_blueprint(deliveries)

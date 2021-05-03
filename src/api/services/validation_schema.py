@@ -181,8 +181,6 @@ create_delivery_schema = {
         },
         'item_value': {
             'type': 'integer',
-            'required': True,
-            'empty': False,
             'min': 0,
             'max': 1000000
         },

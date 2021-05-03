@@ -1,6 +1,7 @@
+from datetime import timedelta
 from flask import Flask
 from sqlalchemy.exc import OperationalError
-from src.configs import DatabaseConfig, ServerConfig
+from src.configs import AppConfig, DatabaseConfig, ServerConfig
 from src.error_handlers import *
 from src.extensions import cors, database, marshmallow, jwt, bcrypt
 
@@ -8,6 +9,7 @@ from src.extensions import cors, database, marshmallow, jwt, bcrypt
 def create_app():
     """Construct the core application."""
     application = Flask(__name__)
+    app_config = AppConfig()
     database_config = DatabaseConfig()
     mysql_uri = 'mysql+pymysql://' + database_config.__getattribute__('DB_MYSQL_USERNAME') + \
                 ':' + database_config.__getattribute__('DB_MYSQL_PASSWORD') + \
@@ -16,7 +18,8 @@ def create_app():
     application.config['SQLALCHEMY_DATABASE_URI'] = mysql_uri
     application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     application.config['SQLALCHEMY_POOL_RECYCLE'] = 90
-    application.config['JWT_SECRET_KEY'] = 'courier_secret_key'
+    application.config['JWT_SECRET_KEY'] = app_config.JWT_SECRET
+    application.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
 
     cors.init_app(application, resources={r'/*': {'origins': '*'}})
     database.init_app(application)
@@ -30,8 +33,9 @@ def create_app():
 
         # Initialize globals/extensions in app context
         # import routes here
-        from src.api.controllers import staffs, clients, deliveries, locations
+        from src.api.controllers import auth, staffs, clients, deliveries, locations
 
+        application.register_blueprint(auth)
         application.register_blueprint(staffs)
         application.register_blueprint(clients)
         application.register_blueprint(deliveries)
@@ -45,5 +49,6 @@ server_config = ServerConfig()
 if __name__ == "__main__":
     app.run(
         host=server_config.APPS_HOST,
-        port=server_config.APPS_PORT
+        port=server_config.APPS_PORT,
+        debug=True
     )
