@@ -54,7 +54,7 @@ def get_delivery_events(delivery_id: any, **kwargs):
 
 
 @deliveries.route('clients/<client_id>')
-# @protected('all')
+@protected('all')
 @response_creator
 def get_client_deliveries(client_id: int, **kwargs):
     """Get a list of deliveries created by a specific client
@@ -72,7 +72,7 @@ def get_client_deliveries(client_id: int, **kwargs):
 
 
 @deliveries.route('')
-# @protected('admin')
+@protected('all')
 @response_creator
 def get_deliveries(**kwargs):
     """Get a list of all deliveries created
@@ -81,12 +81,11 @@ def get_deliveries(**kwargs):
         a multiple delivery resources, error, http status code
     """
     data = get_request_data(request, **kwargs)
-
     return delivery_service.get_deliveries(data)
 
 
 @deliveries.route('', methods=['POST'])
-# @protected('all')
+@protected('all')
 @response_creator
 def create_delivery(**kwargs):
     """Create a delivery
@@ -100,7 +99,7 @@ def create_delivery(**kwargs):
 
 
 @deliveries.route('<delivery_id>/events', methods=['POST'])
-# @protected('all')
+@protected('all')
 @response_creator
 def create_delivery_events(delivery_id, **kwargs):
     """Create a delivery
@@ -114,7 +113,7 @@ def create_delivery_events(delivery_id, **kwargs):
 
 
 @deliveries.route('<delivery_id>', methods=['PUT'])
-# @protected('all')
+@protected('all')
 @response_creator
 def modify_delivery(delivery_id, **kwargs):
     """Modify a delivery

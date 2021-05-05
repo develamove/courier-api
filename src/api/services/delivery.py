@@ -63,6 +63,11 @@ class DeliveryService:
         validator.validate(data)
 
         if not validator.errors:
+            if data['identity_role'] == 'client' and data['identity_id'] is None:
+                return DELIVERY_CREATION_FAILED, dict(token=['invalid token']), FAILURE
+            elif data['identity_role'] == 'client':
+                data['client_id'] = data['identity_id']
+
             # Get the required fields
             allowed_fields = ['limit', 'page', 'client_id']
             filters = filter_dict(allowed_fields, data)
@@ -132,13 +137,15 @@ class DeliveryService:
         validator.validate(data)
 
         if not validator.errors:
-            # if data['identity_role'] == 'client' and str(data['client_id']) != str(data['identity_id']):
-            #     return DELIVERY_CREATION_FAILED, dict(client=['invalid client id']), FAILURE
-            # if data['identity_role'] == 'admin':
-            #     data['client_id'] = 0
+            if data['identity_role'] == 'client' and data['identity_id'] is None:
+                return DELIVERY_CREATION_FAILED, dict(token=['invalid token']), FAILURE
+            elif data['identity_role'] == 'client':
+                data['client_id'] = data['identity_id']
+
+            if data['identity_role'] == 'admin':
+                data['client_id'] = 0
 
             # Static client id
-            data['client_id'] = data.get('client_id', 1111)
             data['tracking_number'] = create_tracking_id()
 
             if data.get('receipt_id', None) is not None:
@@ -291,7 +298,7 @@ class DeliveryService:
         recipient_province_id = data['recipient'].get('province_id')
         area = PROVINCES[recipient_province_id]['area']
         item_type = data.get('item_type')
-        item_value = data.get('item_value')
+        item_value = data.get('item_value', 0)
 
         shipping_fee = SHIPPING_FEES[item_type][area]
 
