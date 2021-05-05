@@ -12,6 +12,7 @@ auth = Blueprint('Authentication', __name__, url_prefix='/auth')
 @response_creator
 def refresh_token(**kwargs):
     data = get_request_data(request, **kwargs)
+
     # identity = get_jwt_identity()
     # access_token = create_access_token(identity=identity)
     return dict(access_token=''), [], SUCCESS
