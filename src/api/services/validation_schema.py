@@ -448,7 +448,7 @@ create_event_schema = {
         'type': 'string',
         'empty': False,
         'required': True,
-        'allowed': ['for_pickup', 'picked_up', 'in_transit', 'failed_delivery', 'delivered', 'cancelled', 'is_remitted']
+        'allowed': ['for_pickup', 'picked_up', 'in_transit', 'failed', 'delivered', 'cancelled', 'remitted']
     },
     'remarks': {
         'type': 'string',

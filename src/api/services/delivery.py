@@ -21,8 +21,8 @@ class DeliveryService:
         'remarks': 'For pickup'
     }
 
-    EVENT_HIERARCHY = ['for_pickup', 'picked_up', 'in_transit', 'failed_delivery', 'delivered', 'cancelled',
-                       'is_remitted']
+    EVENT_HIERARCHY = ['for_pickup', 'picked_up', 'in_transit', 'failed', 'delivered', 'cancelled',
+                       'remitted']
 
     def get_delivery(self, filter_id: any, data: any):
         """Get a single delivery using a filter_id can be either (tracking_id or receipt_id (waybill))
@@ -254,12 +254,14 @@ class DeliveryService:
         cached_data['id'] = delivery_id
 
         if not validator.errors:
-            # if data['identity_role'] == 'client' and str(data['client_id']) != str(data['identity_id']):
-            #     return DELIVERY_CREATION_FAILED, dict(client=['invalid client id']), FAILURE
-            # if data['identity_role'] == 'admin':
-            #     data['client_id'] = 0
+            if data['identity_role'] == 'client' and data['identity_id'] is None:
+                return DELIVERY_CREATION_FAILED, dict(token=['invalid token']), FAILURE
+            elif data['identity_role'] == 'client':
+                data['client_id'] = data['identity_id']
 
-            data['client_id'] = 10000
+            if data['identity_role'] == 'admin':
+                data['client_id'] = 0
+
             is_delivery_exist = self.delivery_repo.get_by_attributes_first(['id'], cached_data)
             if not is_delivery_exist:
                 errors = ErrorManager.create_error('delivery', 'delivery not exist')
