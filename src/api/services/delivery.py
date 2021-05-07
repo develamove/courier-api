@@ -288,7 +288,7 @@ class DeliveryService:
 
                 if is_for_cancellation == 'T':
                     self.event_repo.add({
-                        'delivery_id': data.get('delivery_id'),
+                        'delivery_id': data.get('id'),
                         'name': 'cancelled',
                         'remarks': data.get('cancellation_reason', '')
                     })
