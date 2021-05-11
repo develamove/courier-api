@@ -296,17 +296,35 @@ class DeliveryService:
             return DELIVERY_UPDATE_SUCCESS, '', SUCCESS
         return DELIVERY_UPDATE_FAILED, validator.errors, FAILURE
 
+    def _get_province(self, province_id):
+        for province in PROVINCES:
+            if province['id'] == province_id:
+                return province
+
+        return {
+            "area": "metro_manila",
+            "created_timestamp": "2021-04-21T04:59:45",
+            "id": 49,
+            "is_pickup_available": "T",
+            "name": "Metro Manila"
+          }
+
     def _get_delivery_computations(self, data):
         recipient_province_id = data['recipient'].get('province_id')
-        area = PROVINCES[recipient_province_id]['area']
+        selected_province = self._get_province(recipient_province_id)
+        area = selected_province['area']
         item_type = data.get('item_type')
         item_value = data.get('item_value', 0)
-
         shipping_fee = SHIPPING_FEES[item_type][area]
+        payor = data.get('service_fees_payor', 'sender')
+
+        total = item_value
+        if payor != 'sender':
+            total = shipping_fee['fee'] + item_value
 
         return {
             'shipping_fee': shipping_fee['fee'],
             'transaction_total': shipping_fee['fee'],
             'insurance_fee': 0,
-            'total': shipping_fee['fee'] + item_value
+            'total': total
         }
