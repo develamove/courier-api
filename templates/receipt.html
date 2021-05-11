@@ -218,9 +218,14 @@
 					<td>Declared Value</td>
 					<td>&#8369; {{json_data.item_value}}</td>
 				</tr>
+<!--				{% if json_data.service_fees_payor == 'recipient' %}-->
+<!--					<tr class="item">-->
+<!--						<td>Shipping fee</td>-->
+<!--						<td>+ &#8369; {{json_data.item_value}}</td>-->
+<!--					</tr>-->
+<!--				{% endif %}-->
 				<tr class="total">
-					<td></td>
-					<td>Total: &#8369;{{json_data.item_value}}</td>
+					<td>Total: &#8369;{{json_data.total}}</td>
 				</tr>
 			</table>
 		</div>

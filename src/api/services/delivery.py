@@ -317,7 +317,6 @@ class DeliveryService:
         item_value = data.get('item_value', 0)
         shipping_fee = SHIPPING_FEES[item_type][area]
         payor = data.get('service_fees_payor', 'sender')
-
         total = item_value
         if payor != 'sender':
             total = shipping_fee['fee'] + item_value
