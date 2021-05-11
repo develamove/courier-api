@@ -159,6 +159,10 @@ def download_receipt(delivery_id, **kwargs):
     delivery_info['payment_method'] = payment_method
     payor = 'Consignee' if delivery_info['service_fees_payor'] == 'recipient' else 'Shipper'
     delivery_info['service_fees_payor'] = payor
+    delivery_info['sender']['landmarks'] = 'N/A' if delivery_info['sender']['landmarks'] == '' else \
+        delivery_info['sender']['landmarks']
+    delivery_info['recipient']['landmarks'] = 'N/A' if  delivery_info['recipient']['landmarks'] == '' else \
+        delivery_info['recipient']['landmarks']
     receipt_id = delivery_info['receipt_id'] if len(delivery_info['receipt_id']) > 0 else 'N/A'
     delivery_info['receipt_id'] = receipt_id
 
