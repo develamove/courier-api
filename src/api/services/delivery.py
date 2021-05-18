@@ -313,6 +313,9 @@ class DeliveryService:
         recipient_province_id = data['recipient'].get('province_id')
         selected_province = self._get_province(recipient_province_id)
         area = selected_province['area']
+        if area == 'greater_manila' and data['recipient']['city_id'] not in GREATER_MANILA_CITY_ID:
+            area = 'luzon'
+
         item_type = data.get('item_type')
         item_value = data.get('item_value', 0)
         shipping_fee = SHIPPING_FEES[item_type][area]
