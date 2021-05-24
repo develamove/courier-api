@@ -24,7 +24,7 @@ def login_staff():
 
 
 @staffs.route('', methods=['POST'])
-# @protected('admin')
+@protected('admin')
 @response_creator
 def register_staffs(**kwargs):
     data = get_request_data(request, **kwargs)
