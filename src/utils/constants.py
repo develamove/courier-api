@@ -129,7 +129,7 @@ GREATER_MANILA_CITY_ID = [280, 282, 283, 290, 291, 299, 302, 416, 418, 419, 420,
 SHIPPING_FEES = {
     'S': {
         'metro_manila': {
-            'fee': 100
+            'fee': 80
         },
         'greater_manila': {
             'fee': 150
@@ -146,7 +146,7 @@ SHIPPING_FEES = {
     },
     'M': {
         'metro_manila': {
-            'fee': 150
+            'fee': 120
         },
         'greater_manila': {
             'fee': 180
