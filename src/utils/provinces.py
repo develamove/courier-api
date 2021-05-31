@@ -546,7 +546,7 @@ PROVINCES = [
     "name": "Tawi-Tawi"
   },
   {
-    "area": "mindanao",
+    "area": "luzon",
     "created_timestamp": "2021-04-21T04:59:45",
     "id": 79,
     "is_pickup_available": "F",
