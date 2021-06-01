@@ -46,6 +46,7 @@ def create_app():
 
 app = create_app()
 server_config = ServerConfig()
+
 if __name__ == "__main__":
     app.run(
         host=server_config.APPS_HOST,
