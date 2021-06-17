@@ -113,6 +113,5 @@ def create_districts():
 # python db_manager.py db stamp head (if ERROR [flask_migrate] Error: Target database is not up to date. occurs)
 # python db_manager.py db upgrade
 
-
 if __name__ == '__main__':
     manager.run()
