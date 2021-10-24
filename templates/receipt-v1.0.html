@@ -140,72 +140,106 @@
 					</td>
 				</tr>
 
-				<tr class="heading">
-					<td colspan="2">SHIPPER</td>
-				</tr>
-				<tr class="item">
-					<td colspan="2">{{json_data.sender.full_name}}</td>
-				</tr>
-				<tr class="item">
-					<td colspan="2">{{json_data.sender.province}}, {{json_data.sender.city}}</td>
-				</tr>
-				<tr class="item">
-					<td colspan="2">{{json_data.sender.district}}, {{json_data.sender.street}}, {{json_data.sender.postal_code}}</td>
-				</tr>
-				<tr class="item">
-					<td colspan="2">
-						{% if json_data.sender.landmarks != '' %}
-							{{json_data.sender.landmarks}
-						{% endif %}
-					</td>
-				</tr>
-				<tr class="item">
-					<td colspan="2">{{json_data.sender.cellphone_no}}</td>
-				</tr>
-				<tr class="heading">
-					<td colspan="2">CONSIGNEE</td>
-				</tr>
-				<tr class="item">
-					<td colspan="2">{{json_data.recipient.full_name}}</td>
-				</tr>
-				<tr class="item">
-					<td colspan="2">{{json_data.recipient.province}}, {{json_data.recipient.city}}</td>
-				</tr>
-				<tr class="item">
-					<td colspan="2">{{json_data.recipient.district}}, {{json_data.recipient.street}}, {{json_data.recipient.postal_code}}</td>
-				</tr>
-				<tr class="item">
-					<td colspan="2">
+				<tr class="information">
+					<td>
+						<b>Shipper</b><br />
+						{{json_data.sender.full_name}}<br />
+						{{json_data.sender.province}}, {{json_data.sender.city}}<br />
+						{{json_data.sender.district}}, {{json_data.sender.street}}, {{json_data.sender.postal_code}}<br />
 						{% if json_data.recipient.landmarks != '' %}
-							{{json_data.recipient.landmarks}
+							{{json_data.sender.landmarks}}<br />
 						{% endif %}
+						{{json_data.sender.cellphone_no}}
+					</td>
+
+					<td>
+						<b>Consignee</b><br />
+						{{json_data.recipient.full_name}}<br />
+						{{json_data.recipient.province}}, {{json_data.recipient.city}}<br />
+						{{json_data.recipient.district}}, {{json_data.recipient.street}}, {{json_data.recipient.postal_code}}<br />
+						{% if json_data.recipient.landmarks != '' %}
+							{{json_data.recipient.landmarks}}<br />
+						{% endif %}
+						{{json_data.recipient.cellphone_no}}
 					</td>
 				</tr>
-				<tr class="item">
-					<td colspan="2">{{json_data.recipient.cellphone_no}}</td>
-				</tr>
+
 				<tr class="heading">
-					<td colspan="2">INFO</td>
+					<td>Package</td>
+					<td></td>
 				</tr>
 				<tr class="item">
-					<td>ITEM DESCRIPTION</td>
+					<td>Description</td>
 					<td>{{json_data.item_description}}</td>
 				</tr>
 				<tr class="item">
-					<td>PARCEL SIZE</td>
+					<td>Type</td>
 					<td>{{json_data.item_type}}</td>
 				</tr>
-				<tr class="item">
-					<td>SHIPPING FEE</td>
-					<td>&#8369; {{json_data.shipping_fee}}</td>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr class="heading">
+					<td>Payment</td>
+					<td></td>
 				</tr>
 				<tr class="item">
-					<td>COD</td>
-					<td>&#8369; {{json_data.item_value}}</td>
+					<td>Method</td>
+					<td>{{json_data.payment_method}}</td>
+				</tr>
+				<tr class="item">
+					<td>Shipping fee shouldered by</td>
+					<td>{{json_data.service_fees_payor}}</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr class="heading">
+					<td>Transaction</td>
+					<td>Amount</td>
+				</tr>
+
+				<tr class="item">
+					<td>Shipping Fee</td>
+					<td>&#8369;{{json_data.shipping_fee}}</td>
+				</tr>
+				<tr class="item">
+					<td>Insurance</td>
+					<td>&#8369; {{json_data.insurance_fee}}</td>
 				</tr>
 				<tr class="total">
 					<td></td>
-					<td>TOTAL: &#8369; {{json_data.total}}</td>
+					<td>Total: &#8369;{{json_data.transaction_total}}</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr class="heading">
+					<td>Item</td>
+					<td>Amount</td>
+				</tr>
+				<tr class="item">
+					<td>Declared Value</td>
+					<td>&#8369; {{json_data.item_value}}</td>
+				</tr>
+				{% if json_data.service_fees_payor == 'Consignee' %}
+					<tr class="item">
+						<td></td>
+						<td>(Shipping fee) &#8369; {{json_data.shipping_fee}}</td>
+					</tr>
+				{% endif %}
+				<tr class="total">
+					<td></td>
+					<td>Total: &#8369;{{json_data.total}}</td>
 				</tr>
 			</table>
 		</div>
